@@ -1,0 +1,12 @@
+<ng-container *ngIf="formControl; else noControl">
+  <mat-form-field appearance="fill">
+    <mat-label *ngIf="label">{{ label }}</mat-label>
+    <input matInput [formControl]="formControl" type="number" [min]="minValue" [max]="maxValue" [placeholder]="placeholder">
+    <span matTextSuffix *ngIf="isPercentage">%</span>
+    <span matTextSuffix *ngIf="isCurrency">{{ currency }}</span>
+  </mat-form-field>
+</ng-container>
+
+<ng-template #noControl>
+  <!-- TODO create a no formControl version -->
+</ng-template>
