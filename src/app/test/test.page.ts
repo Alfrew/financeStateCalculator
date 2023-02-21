@@ -6,8 +6,9 @@ import { InputSelectFunctions, InputSelectOption, InputSelectOptionsGroup } from
   selector: "page-test",
   template: `
     <form [formGroup]="form">
-      <app-input-select formControlName="select" [optionList]="optionList" [multipleLimit]="2" placeholder="Select some food"></app-input-select>
-      <app-input-select formControlName="selectGroup" [groupedOptionList]="optionGroupsList" [multipleLimit]="6" placeholder="Select six pokemons"></app-input-select>
+      <app-input-number formControlName="select" [isCurrency]="true" label="Select some food"></app-input-number>
+      <app-input-number formControlName="selectGroup" [minValue]="0" [maxValue]="100" [isPercentage]="true" label="Select six pokemons"></app-input-number>
+      <button (click)="logForm()">Ciao</button>
     </form>
   `,
   styles: [],
@@ -17,9 +18,12 @@ export class TestPage implements OnInit {
   optionGroupsList: InputSelectOptionsGroup[] = InputSelectFunctions.returnOptionsGroupList(LIST_GROUP_MOCKUP, "type", "pokemons", "id", "label");
 
   form: FormGroup = new FormGroup({
-    select: new FormControl(""),
-    selectGroup: new FormControl(""),
+    select: new FormControl(),
+    selectGroup: new FormControl(),
   });
+  logForm() {
+    console.log(this.form.value);
+  }
 
   constructor() {}
 
