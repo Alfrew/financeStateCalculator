@@ -1,0 +1,5 @@
+<mat-stepper labelPosition="bottom" #stepper>
+  <mat-step *ngFor="let form of formGroups; let i = index" [stepControl]="form" [label]="labels[i]">
+    <ng-container *ngIf="form" [ngTemplateOutlet]="contentTemplateRef" [ngTemplateOutletContext]="{$implicit:form}"></ng-container>
+  </mat-step>
+</mat-stepper>
