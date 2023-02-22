@@ -1,0 +1,156 @@
+<app-stepper [formGroups]="formGroupList" [labels]="labels">
+  <ng-template let-form #content>
+    <form *ngIf="form === incomeFormGroup" [formGroup]="incomeFormGroup">
+      <div class="align-items-center"><app-input-number class="flex-1" formControlName="age" label="Age"></app-input-number></div>
+      <div class="align-items-center"><app-input-number class="flex-1" formControlName="employment" [isCurrency]="true" label="Income from employment"></app-input-number></div>
+      <div class="align-items-center"><app-input-number class="flex-1" formControlName="investment" [isCurrency]="true" label="Income from investments"></app-input-number></div>
+      <div class="align-items-center"><app-input-number class="flex-1" formControlName="other" [isCurrency]="true" label="Other incomes"></app-input-number></div>
+      <div class="align-items-center"><app-input-number class="flex-1" formControlName="expenses" [isCurrency]="true" label="Expenses"></app-input-number></div>
+      <div class="align-items-center"><app-input-select class="flex-1" formControlName="homeOwner" [optionList]="homeOwnerList" label="Home owner?"></app-input-select></div>
+      <div class="align-items-center" *ngIf="incomeFormGroup.controls['homeOwner'].value === 'true'"><app-input-number class="flex-1" formControlName="rent" [isCurrency]="true" label="Rent"></app-input-number></div>
+    </form>
+
+
+    <form *ngIf="form === financialAssetsFormGroup" [formGroup]="financialAssetsFormGroup">
+      <!-- CASH -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="cash" [isCurrency]="true" label="Cash (physical)"></app-input-number>
+        <app-input-number class="flex-1" formControlName="cashP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- BANK -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="bank" [isCurrency]="true" label="Chequing account"></app-input-number>
+        <app-input-number class="flex-1" formControlName="bankP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- EMERGENCY FUND -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="emergencyFund" [isCurrency]="true" label="Emergency fund"></app-input-number>
+        <app-input-number class="flex-1" formControlName="emergencyFundP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- SAVINGS -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="savings" [isCurrency]="true" label="Savings account"></app-input-number>
+        <app-input-number class="flex-1" formControlName="savingsP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- GIC -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="GIC" [isCurrency]="true" label="GIC's"></app-input-number>
+        <app-input-number class="flex-1" formControlName="GICP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- BONDS -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="bonds" [isCurrency]="true" label="Bonds"></app-input-number>
+        <app-input-number class="flex-1" formControlName="bondsP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- STOCKS -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="stocks" [isCurrency]="true" label="Stocks"></app-input-number>
+        <app-input-number class="flex-1" formControlName="stocksP" [isPercentage]="true" label="Rate of change"></app-input-number>
+        <app-input-select formControlName="stocksD" [optionList]="stocksDurationList" label="Duration of investment"></app-input-select>
+      </div>
+      <!-- CRYPTO -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="crypto" [isCurrency]="true" label="Crypto"></app-input-number>
+        <app-input-number class="flex-1" formControlName="cryptoP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- GOLD -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="gold" [isCurrency]="true" label="Gold"></app-input-number>
+        <app-input-number class="flex-1" formControlName="goldP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- OTHER FINANCIAL ASSETS -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="other" [isCurrency]="true" label="Other investments"></app-input-number>
+        <app-input-number class="flex-1" formControlName="otherP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+    </form>
+
+
+    <form *ngIf="form === physicalAssetsFormGroup" [formGroup]="physicalAssetsFormGroup">
+      <!-- VEHICLE -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="vehicle" [isCurrency]="true" label="Vehicle"></app-input-number>
+        <app-input-number class="flex-1" formControlName="vehicleP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- PROPERTY -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="property" [isCurrency]="true" label="Property (exl. mortgage)"></app-input-number>
+        <app-input-number class="flex-1" formControlName="propertyP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- EQUIPMENT -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="equipment" [isCurrency]="true" label="Equipment"></app-input-number>
+        <app-input-number class="flex-1" formControlName="equipmentP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- ELECTRONICS -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="electronics" [isCurrency]="true" label="Electronics"></app-input-number>
+        <app-input-number class="flex-1" formControlName="electronicsP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- OTHER PHYSICAL ASSETS -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="other" [isCurrency]="true" label="Other valuables"></app-input-number>
+        <app-input-number class="flex-1" formControlName="otherP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+    </form>
+
+
+    <form *ngIf="form === liabilitiesFormGroup" [formGroup]="liabilitiesFormGroup">
+      <!-- CREDIT CARD -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="creditCard" [isCurrency]="true" label="Credit card"></app-input-number>
+        <app-input-number class="flex-1" formControlName="creditCardP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- LINE OF CREDIT -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="creditLine" [isCurrency]="true" label="Line of credit"></app-input-number>
+        <app-input-number class="flex-1" formControlName="creditLineP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- STUDENT LOAN 1 -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="studentLoan1" [isCurrency]="true" label="Student loan 1"></app-input-number>
+        <app-input-number class="flex-1" formControlName="studentLoan1P" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- STUDENT LOAN 2 -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="studentLoan2" [isCurrency]="true" label="Student loan 2"></app-input-number>
+        <app-input-number class="flex-1" formControlName="studentLoan2P" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- MORTGAGE -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="mortgage" [isCurrency]="true" label="Mortgage"></app-input-number>
+        <app-input-number class="flex-1" formControlName="mortgageP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- CAR LOAN -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="carLoan" [isCurrency]="true" label="Car loan"></app-input-number>
+        <app-input-number class="flex-1" formControlName="carLoanP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- PERSONAL LOAN -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="personalLoan" [isCurrency]="true" label="Personal loan"></app-input-number>
+        <app-input-number class="flex-1" formControlName="personalLoanP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- MEDICAL DEBT -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="medicalDebt" [isCurrency]="true" label="Medical debt"></app-input-number>
+        <app-input-number class="flex-1" formControlName="medicalDebtP" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- OTHER DEBT 1 -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="other1" [isCurrency]="true" label="Other 1"></app-input-number>
+        <app-input-number class="flex-1" formControlName="other1P" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- OTHER DEBT 2 -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="other2" [isCurrency]="true" label="Other 2"></app-input-number>
+        <app-input-number class="flex-1" formControlName="other2P" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+      <!-- OTHER DEBT 3 -->
+      <div class="align-items-center">
+        <app-input-number class="flex-1" formControlName="other3" [isCurrency]="true" label="Other 3"></app-input-number>
+        <app-input-number class="flex-1" formControlName="other3P" [isPercentage]="true" label="Rate of change"></app-input-number>
+      </div>
+    </form>
+  </ng-template>
+</app-stepper>
