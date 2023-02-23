@@ -8,6 +8,7 @@ import { InputSelectFunctions, InputSelectOption, InputSelectOptionsGroup } from
   styles: [],
 })
 export class TestPage implements OnInit {
+
   constructor() {}
 
   ngOnInit(): void {
