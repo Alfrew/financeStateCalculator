@@ -1,5 +1,9 @@
 <mat-stepper labelPosition="bottom" #stepper>
   <mat-step *ngFor="let form of formGroups; let i = index" [stepControl]="form" [label]="labels[i]">
     <ng-container *ngIf="form" [ngTemplateOutlet]="contentTemplateRef" [ngTemplateOutletContext]="{$implicit:form}"></ng-container>
+    <div>
+      <shared-mat-flat-button *ngIf="i>0" label="Back" matStepperPrevious></shared-mat-flat-button>
+      <shared-mat-flat-button *ngIf="i<formGroups.length" label="Next" matStepperNext></shared-mat-flat-button>
+    </div>
   </mat-step>
 </mat-stepper>

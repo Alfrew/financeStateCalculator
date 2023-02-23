@@ -2,7 +2,7 @@ import { Component, forwardRef, Host, Input, Optional, OnInit, SkipSelf } from "
 import { NG_VALUE_ACCESSOR, ControlContainer, FormControl, ControlValueAccessor } from "@angular/forms";
 
 @Component({
-  selector: "app-input-number",
+  selector: "shared-mat-input-number",
   templateUrl: "./input-number.component.html",
   styleUrls: ["./input-number.component.scss"],
   providers: [

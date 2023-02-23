@@ -4,32 +4,24 @@ import { InputSelectFunctions, InputSelectOption, InputSelectOptionsGroup } from
 
 @Component({
   selector: "page-test",
-  template: `
-    <form [formGroup]="form">
-      <app-input-number formControlName="select" [isCurrency]="true" label="Select some food"></app-input-number>
-      <app-input-number formControlName="selectGroup" [minValue]="0" [maxValue]="100" [isPercentage]="true" label="Select six pokemons"></app-input-number>
-      <button (click)="logForm()">Ciao</button>
-    </form>
-  `,
+  template: ` <shared-mat-flat-button (buttonClick)="logger()" [isDisabled]="true" color="primary" label="Bottone"></shared-mat-flat-button> `,
   styles: [],
 })
 export class TestPage implements OnInit {
-  optionList: InputSelectOption[] = InputSelectFunctions.returnOptionList(LIST_MOCKUP, "id", "label");
-  optionGroupsList: InputSelectOptionsGroup[] = InputSelectFunctions.returnOptionsGroupList(LIST_GROUP_MOCKUP, "type", "pokemons", "id", "label");
-
-  form: FormGroup = new FormGroup({
-    select: new FormControl(),
-    selectGroup: new FormControl(),
-  });
-  logForm() {
-    console.log(this.form.value);
-  }
 
   constructor() {}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+  }
+
+  /**
+   * Used for event emitter testing.
+   * @param value
+   */
+  logger(value?: any) {
+    console.warn(value ?? "Logged");
   }
 }
 
