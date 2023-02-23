@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ContentChild, TemplateRef } from "@angular/co
 import { FormGroup } from "@angular/forms";
 
 @Component({
-  selector: "app-stepper",
+  selector: "shared-mat-stepper",
   templateUrl: "./stepper.component.html",
   styleUrls: ["./stepper.component.scss"],
 })

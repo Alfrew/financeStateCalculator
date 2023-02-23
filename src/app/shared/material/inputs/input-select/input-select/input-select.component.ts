@@ -3,7 +3,7 @@ import { InputSelectOption, InputSelectOptionsGroup } from "src/app/shared/utils
 import { NG_VALUE_ACCESSOR, ControlContainer, FormControl, ControlValueAccessor } from "@angular/forms";
 
 @Component({
-  selector: "app-input-select",
+  selector: "shared-mat-input-select",
   templateUrl: "./input-select.component.html",
   styleUrls: ["./input-select.component.scss"],
   providers: [

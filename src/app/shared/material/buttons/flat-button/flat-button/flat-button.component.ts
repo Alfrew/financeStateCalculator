@@ -2,7 +2,7 @@ import { matColor } from "src/app/shared/utils/button-utils";
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: "app-flat-button",
+  selector: "shared-mat-flat-button",
   templateUrl: "./flat-button.component.html",
   styleUrls: ["./flat-button.component.scss"],
 })

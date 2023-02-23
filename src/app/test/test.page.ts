@@ -4,7 +4,7 @@ import { InputSelectFunctions, InputSelectOption, InputSelectOptionsGroup } from
 
 @Component({
   selector: "page-test",
-  template: ` <app-flat-button (buttonClick)="logger()" [isDisabled]="true" color="primary" label="Bottone"></app-flat-button> `,
+  template: ` <shared-mat-flat-button (buttonClick)="logger()" [isDisabled]="true" color="primary" label="Bottone"></shared-mat-flat-button> `,
   styles: [],
 })
 export class TestPage implements OnInit {

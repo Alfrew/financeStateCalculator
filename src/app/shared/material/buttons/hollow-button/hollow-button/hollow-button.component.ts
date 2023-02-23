@@ -2,7 +2,7 @@ import { matColor } from "src/app/shared/utils/button-utils";
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: "app-hollow-button",
+  selector: "shared-mat-hollow-button",
   templateUrl: "./hollow-button.component.html",
   styleUrls: ["./hollow-button.component.scss"],
 })
