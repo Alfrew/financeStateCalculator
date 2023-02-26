@@ -1,4 +1,4 @@
-<sm-stepper [formGroups]="formGroupList" [labels]="labels">
+<sm-stepper [formGroups]="formGroupList" [labels]="stepLabels" (submit)="saveData()">
   <ng-template let-form #content>
     <form class="form" *ngIf="form === incomeFormGroup" [formGroup]="incomeFormGroup">
       <div class="align-items-center"><sm-input-number class="flex-1" formControlName="age" label="Age"></sm-input-number></div>
@@ -15,53 +15,53 @@
       <!-- CASH -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="cash" [isCurrency]="true" label="Cash (physical)"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="cashP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="cashPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- BANK -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="bank" [isCurrency]="true" label="Chequing account"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="bankP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="bankPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- EMERGENCY FUND -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="emergencyFund" [isCurrency]="true" label="Emergency fund"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="emergencyFundP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="emergencyFundPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- SAVINGS -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="savings" [isCurrency]="true" label="Savings account"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="savingsP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="savingsPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- GIC -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="GIC" [isCurrency]="true" label="GIC's"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="GICP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="GICPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- BONDS -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="bonds" [isCurrency]="true" label="Bonds"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="bondsP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="bondsPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- STOCKS -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="stocks" [isCurrency]="true" label="Stocks"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="stocksP" [isPercentage]="true" label="Rate of change"></sm-input-number>
-        <sm-input-select formControlName="stocksD" [optionList]="stocksDurationList" label="Duration of investment"></sm-input-select>
+        <sm-input-number class="flex-1" formControlName="stocksPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-select formControlName="stocksDuration" [optionList]="stocksDurationList" label="Duration of investment"></sm-input-select>
       </div>
       <!-- CRYPTO -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="crypto" [isCurrency]="true" label="Crypto"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="cryptoP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="cryptoPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- GOLD -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="gold" [isCurrency]="true" label="Gold"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="goldP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="goldPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- OTHER FINANCIAL ASSETS -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="other" [isCurrency]="true" label="Other investments"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="otherP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="otherPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
     </form>
 
@@ -70,27 +70,27 @@
       <!-- VEHICLE -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="vehicle" [isCurrency]="true" label="Vehicle"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="vehicleP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="vehiclePercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- PROPERTY -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="property" [isCurrency]="true" label="Property (exl. mortgage)"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="propertyP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="propertyPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- EQUIPMENT -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="equipment" [isCurrency]="true" label="Equipment"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="equipmentP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="equipmentPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- ELECTRONICS -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="electronics" [isCurrency]="true" label="Electronics"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="electronicsP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="electronicsPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- OTHER PHYSICAL ASSETS -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="other" [isCurrency]="true" label="Other valuables"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="otherP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="otherPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
     </form>
 
@@ -99,57 +99,57 @@
       <!-- CREDIT CARD -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="creditCard" [isCurrency]="true" label="Credit card"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="creditCardP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="creditCardPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- LINE OF CREDIT -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="creditLine" [isCurrency]="true" label="Line of credit"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="creditLineP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="creditLinePercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- STUDENT LOAN 1 -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="studentLoan1" [isCurrency]="true" label="Student loan 1"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="studentLoan1P" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="studentLoan1Percentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- STUDENT LOAN 2 -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="studentLoan2" [isCurrency]="true" label="Student loan 2"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="studentLoan2P" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="studentLoan2Percentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- MORTGAGE -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="mortgage" [isCurrency]="true" label="Mortgage"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="mortgageP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="mortgagePercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- CAR LOAN -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="carLoan" [isCurrency]="true" label="Car loan"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="carLoanP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="carLoanPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- PERSONAL LOAN -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="personalLoan" [isCurrency]="true" label="Personal loan"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="personalLoanP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="personalLoanPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- MEDICAL DEBT -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="medicalDebt" [isCurrency]="true" label="Medical debt"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="medicalDebtP" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="medicalDebtPercentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- OTHER DEBT 1 -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="other1" [isCurrency]="true" label="Other 1"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="other1P" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="other1Percentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- OTHER DEBT 2 -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="other2" [isCurrency]="true" label="Other 2"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="other2P" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="other2Percentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
       <!-- OTHER DEBT 3 -->
       <div class="align-items-center">
         <sm-input-number class="flex-1" formControlName="other3" [isCurrency]="true" label="Other 3"></sm-input-number>
-        <sm-input-number class="flex-1" formControlName="other3P" [isPercentage]="true" label="Rate of change"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="other3Percentage" [isPercentage]="true" label="Rate of change"></sm-input-number>
       </div>
     </form>
   </ng-template>

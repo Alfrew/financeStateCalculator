@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { InputSelectOption } from "src/app/shared/utils/input-select-utils";
+import { FinanceStateData } from "../../../models/finance-state-data";
+import { FinanceStateDataService } from "../../../services/finance-state-data.service";
 
 @Component({
-  selector: "fsc-form",
   templateUrl: "./fsc-form.page.html",
   styleUrls: ["./fsc-form.page.scss"],
 })
@@ -14,82 +15,97 @@ export class FscFormPage {
     investment: new FormControl(),
     other: new FormControl(),
     expenses: new FormControl(),
-    homeOwner: new FormControl(),
+    homeOwner: new FormControl("false"),
     rent: new FormControl(),
   });
   financialAssetsFormGroup: FormGroup = new FormGroup({
     cash: new FormControl(),
-    cashP: new FormControl(),
+    cashPercentage: new FormControl(),
     bank: new FormControl(),
-    bankP: new FormControl(),
+    bankPercentage: new FormControl(),
     emergencyFund: new FormControl(),
-    emergencyFundP: new FormControl(),
+    emergencyFundPercentage: new FormControl(),
     savings: new FormControl(),
-    savingsP: new FormControl(),
+    savingsPercentage: new FormControl(),
     GIC: new FormControl(),
-    GICP: new FormControl(),
+    GICPercentage: new FormControl(),
     bonds: new FormControl(),
-    bondsP: new FormControl(),
+    bondsPercentage: new FormControl(),
     stocks: new FormControl(),
-    stocksP: new FormControl(),
-    stocksD: new FormControl(),
+    stocksPercentage: new FormControl(),
+    stocksDuration: new FormControl(),
     crypto: new FormControl(),
-    cryptoP: new FormControl(),
+    cryptoPercentage: new FormControl(),
     gold: new FormControl(),
-    goldP: new FormControl(),
+    goldPercentage: new FormControl(),
     other: new FormControl(),
-    otherP: new FormControl(),
+    otherPercentage: new FormControl(),
   });
   physicalAssetsFormGroup: FormGroup = new FormGroup({
     vehicle: new FormControl(),
-    vehicleP: new FormControl(),
+    vehiclePercentage: new FormControl(),
     property: new FormControl(),
-    propertyP: new FormControl(),
+    propertyPercentage: new FormControl(),
     equipment: new FormControl(),
-    equipmentP: new FormControl(),
+    equipmentPercentage: new FormControl(),
     electronics: new FormControl(),
-    electronicsP: new FormControl(),
+    electronicsPercentage: new FormControl(),
     other: new FormControl(),
-    otherP: new FormControl(),
+    otherPercentage: new FormControl(),
   });
   liabilitiesFormGroup: FormGroup = new FormGroup({
     creditCard: new FormControl(),
-    creditCardP: new FormControl(),
+    creditCardPercentage: new FormControl(),
     creditLine: new FormControl(),
-    creditLineP: new FormControl(),
+    creditLinePercentage: new FormControl(),
     studentLoan1: new FormControl(),
-    studentLoan1P: new FormControl(),
+    studentLoan1Percentage: new FormControl(),
     studentLoan2: new FormControl(),
-    studentLoan2P: new FormControl(),
+    studentLoan2Percentage: new FormControl(),
     mortgage: new FormControl(),
-    mortgageP: new FormControl(),
+    mortgagePercentage: new FormControl(),
     carLoan: new FormControl(),
-    carLoanP: new FormControl(),
+    carLoanPercentage: new FormControl(),
     personalLoan: new FormControl(),
-    personalLoanP: new FormControl(),
+    personalLoanPercentage: new FormControl(),
     medicalDebt: new FormControl(),
-    medicalDebtP: new FormControl(),
+    medicalDebtPercentage: new FormControl(),
     other1: new FormControl(),
-    other1P: new FormControl(),
+    other1Percentage: new FormControl(),
     other2: new FormControl(),
-    other2P: new FormControl(),
+    other2Percentage: new FormControl(),
     other3: new FormControl(),
-    other3P: new FormControl(),
+    other3Percentage: new FormControl(),
   });
 
   formGroupList: FormGroup[] = [this.incomeFormGroup, this.financialAssetsFormGroup, this.physicalAssetsFormGroup, this.liabilitiesFormGroup];
-  labels: string[] = ["Annual income statement (After Tax)", "Financial assets", "Physical assets", "Liabilities"];
   homeOwnerList: InputSelectOption[] = [
     { value: "false", viewValue: "No" },
     { value: "true", viewValue: "Yes" },
   ];
+  stepLabels: string[] = ["Annual income statement (After Tax)", "Financial assets", "Physical assets", "Liabilities"];
   stocksDurationList: InputSelectOption[] = [
     { value: "1", viewValue: "Less than a year" },
     { value: "2", viewValue: "1-5 years" },
     { value: "3", viewValue: "6-10 years" },
     { value: "4", viewValue: "10+ years" },
   ];
-  ngOnInit(): void {
-    console.log(this.formGroupList);
+
+  constructor(private financeStateDatasSRV: FinanceStateDataService) {}
+
+  ngOnInit(): void {}
+
+  /**
+   * Used to save the form control values in the finance state data service.
+   */
+  saveData() {
+    let responses: FinanceStateData = {
+      income: this.incomeFormGroup.value,
+      financialAssets: this.financialAssetsFormGroup.value,
+      physicalAssets: this.physicalAssetsFormGroup.value,
+      liabilities: this.liabilitiesFormGroup.value,
+    };
+
+    this.financeStateDatasSRV.updateFinanceStateData(responses);
   }
 }

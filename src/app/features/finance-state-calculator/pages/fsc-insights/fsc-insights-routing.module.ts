@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { FscFormPage } from "./fsc-form/fsc-form.page";
+import { FscInsightsPage } from "./fsc-insights/fsc-insights.page";
 
-const routes: Routes = [{ path: "", component: FscFormPage }];
+const routes: Routes = [{ path: "", component: FscInsightsPage }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class FscFormRoutingModule {}
+export class FscInsightsRoutingModule {}

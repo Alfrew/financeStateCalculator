@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ContentChild, TemplateRef } from "@angular/core";
+import { Component, Input, Output, EventEmitter, ContentChild, TemplateRef } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 
 @Component({
@@ -6,12 +6,25 @@ import { FormGroup } from "@angular/forms";
   templateUrl: "./sm-stepper.component.html",
   styleUrls: ["./sm-stepper.component.scss"],
 })
-export class SmStepperComponent implements OnInit {
+export class SmStepperComponent {
   @Input() formGroups: FormGroup[] = [];
   @Input() labels: string[] = [];
   @ContentChild("content", { static: false }) contentTemplateRef!: TemplateRef<any>;
+  @Output() submit: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 
-  ngOnInit(): void {}
+  /**
+   * Used to get the last index of the form group list.
+   */
+  get lastFormGroupsIndex() {
+    return this.formGroups.length - 1;
+  }
+
+  /**
+   * Used to emit the click event of the submit button to the parent component.
+   */
+  submitEmitter() {
+    this.submit.emit();
+  }
 }

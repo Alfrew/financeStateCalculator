@@ -18,8 +18,8 @@ export class SmInputNumberComponent implements OnInit, ControlValueAccessor {
 
   @Input() label: string = "";
   @Input() placeholder: string = "common.input.placeholder";
-  @Input() minValue?: number;
-  @Input() maxValue?: number;
+  @Input() minValue: string = "";
+  @Input() maxValue: string = "";
   @Input() isPercentage: boolean = false;
   @Input() isCurrency: boolean = false;
 

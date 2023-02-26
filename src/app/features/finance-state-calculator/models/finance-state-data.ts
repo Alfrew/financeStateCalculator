@@ -1,0 +1,70 @@
+export interface FinanceStateData {
+  income: {
+    age: number;
+    employment: number;
+    investment: number;
+    other: number;
+    expenses: number;
+    homeOwner: string;
+    rent: number;
+  };
+  financialAssets: {
+    cash: number;
+    cashPercentage: number;
+    bank: number;
+    bankPercentage: number;
+    emergencyFund: number;
+    emergencyFundPercentage: number;
+    savings: number;
+    savingsPercentage: number;
+    GIC: number;
+    GICPercentage: number;
+    bonds: number;
+    bondsPercentage: number;
+    stocks: number;
+    stocksPercentage: number;
+    stocksDuration: string;
+    crypto: number;
+    cryptoPercentage: number;
+    gold: number;
+    goldPercentage: number;
+    other: number;
+    otherPercentage: number;
+  };
+  physicalAssets: {
+    vehicle: number;
+    vehiclePercentage: number;
+    property: number;
+    propertyPercentage: number;
+    equipment: number;
+    equipmentPercentage: number;
+    electronics: number;
+    electronicsPercentage: number;
+    other: number;
+    otherPercentage: number;
+  };
+  liabilities: {
+    creditCard: number;
+    creditCardPercentage: number;
+    creditLine: number;
+    creditLinePercentage: number;
+    studentLoan1: number;
+    studentLoan1Percentage: number;
+    studentLoan2: number;
+    studentLoan2Percentage: number;
+    mortgage: number;
+    mortgagePercentage: number;
+    carLoan: number;
+    carLoanPercentage: number;
+    personalLoan: number;
+    personalLoanPercentage: number;
+    medicalDebt: number;
+    medicalDebtPercentage: number;
+    other1: number;
+    other1Percentage: number;
+    other2: number;
+    other2Percentage: number;
+    other3: number;
+    other3Percentage: number;
+  };
+}
