@@ -1,0 +1,10 @@
+<ng-container *ngIf="formControl; else noControl">
+  <mat-form-field appearance="fill">
+    <mat-label *ngIf="label">{{ label }}</mat-label>
+    <input matInput [formControl]="formControl" type="text" [placeholder]="placeholder">
+  </mat-form-field>
+</ng-container>
+
+<ng-template #noControl>
+  <!-- TODO create a no formControl version -->
+</ng-template>

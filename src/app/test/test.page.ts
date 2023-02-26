@@ -4,11 +4,10 @@ import { InputSelectFunctions, InputSelectOption, InputSelectOptionsGroup } from
 
 @Component({
   selector: "page-test",
-  template: ` <shared-mat-flat-button (buttonClick)="logger()" [isDisabled]="true" color="primary" label="Bottone"></shared-mat-flat-button> `,
+  template: ` <sm-flat-button (buttonClick)="logger()" [isDisabled]="true" color="primary" label="Bottone"></sm-flat-button> `,
   styles: [],
 })
 export class TestPage implements OnInit {
-
   constructor() {}
 
   ngOnInit(): void {

@@ -5,11 +5,10 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { TestModule } from "./test/test.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FormModule } from "./pages/form/form.module";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, TestModule, FormModule, BrowserAnimationsModule],
+  imports: [BrowserModule, AppRoutingModule, TestModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

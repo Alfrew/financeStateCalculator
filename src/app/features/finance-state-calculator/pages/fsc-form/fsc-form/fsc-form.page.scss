@@ -1,0 +1,15 @@
+@import "/src/assets/styles/variables.scss";
+
+.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.form {
+  max-width: 60vw;
+  margin: auto;
+}
