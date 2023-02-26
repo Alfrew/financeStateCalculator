@@ -1,0 +1,10 @@
+@import "/src/assets/styles/variables.scss";
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gap-1 {
+  gap: 8px;
+}
