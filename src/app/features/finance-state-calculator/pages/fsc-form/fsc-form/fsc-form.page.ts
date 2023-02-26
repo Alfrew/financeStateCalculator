@@ -3,11 +3,11 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { InputSelectOption } from "src/app/shared/utils/input-select-utils";
 
 @Component({
-  selector: "page-form",
-  templateUrl: "./form.page.html",
-  styleUrls: ["./form.page.scss"],
+  selector: "fsc-form",
+  templateUrl: "./fsc-form.page.html",
+  styleUrls: ["./fsc-form.page.scss"],
 })
-export class FormPage {
+export class FscFormPage {
   incomeFormGroup: FormGroup = new FormGroup({
     age: new FormControl(),
     employment: new FormControl(),
