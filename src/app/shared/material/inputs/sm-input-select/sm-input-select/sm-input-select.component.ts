@@ -15,7 +15,7 @@ import { NG_VALUE_ACCESSOR, ControlContainer, FormControl, ControlValueAccessor 
   ],
 })
 export class SmInputSelectComponent implements OnInit, ControlValueAccessor {
-  @Input() formControlName!: string;
+  @Input() formControlName?: string;
   @Input() optionList: InputSelectOption[] = [];
   @Input() groupedOptionList?: InputSelectOptionsGroup[];
 
@@ -25,7 +25,7 @@ export class SmInputSelectComponent implements OnInit, ControlValueAccessor {
   @Input() isMultiple: boolean = false;
   @Input() hasClearOption: boolean = false;
 
-  formControl!: FormControl;
+  formControl?: FormControl;
 
   constructor(
     @Optional()
@@ -50,7 +50,7 @@ export class SmInputSelectComponent implements OnInit, ControlValueAccessor {
   formControlCreator() {
     if (this.formControlName) {
       if (this.controlContainer) {
-        this.formControl = this.controlContainer.control!.get(this.formControlName)! as FormControl;
+        this.formControl = this.controlContainer.control!.get(this.formControlName) as FormControl;
       } else {
         console.error("Can't find parent FormGroup directive");
       }
@@ -71,8 +71,8 @@ export class SmInputSelectComponent implements OnInit, ControlValueAccessor {
    * `multipleLimit` has been reached, `false` if one of the previous conditions is not valid.
    */
   isOptionDisabled(optionValue: any): boolean {
-    if (this.isMultiple && this.formControl.value && !!this.multipleLimit) {
-      return this.formControl.value.length >= this.multipleLimit && !this.formControl.value.find((value: any) => value == optionValue);
+    if (this.isMultiple && this.formControl!.value && !!this.multipleLimit) {
+      return this.formControl!.value.length >= this.multipleLimit && !this.formControl!.value.find((value: any) => value == optionValue);
     } else {
       return false;
     }

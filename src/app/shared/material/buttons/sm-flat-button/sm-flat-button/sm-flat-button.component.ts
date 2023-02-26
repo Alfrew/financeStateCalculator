@@ -8,7 +8,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 })
 export class SmFlatButtonComponent {
   @Input() label: string = "";
-  @Input() icon!: string;
+  @Input() icon?: string;
   @Input() isDisabled: boolean = false;
   @Input() color: matColor = "";
   @Output() buttonClick: EventEmitter<void> = new EventEmitter<void>();

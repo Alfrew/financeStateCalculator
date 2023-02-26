@@ -14,12 +14,12 @@ import { NG_VALUE_ACCESSOR, ControlContainer, FormControl, ControlValueAccessor 
   ],
 })
 export class SmInputNumberComponent implements OnInit, ControlValueAccessor {
-  @Input() formControlName!: string;
+  @Input() formControlName?: string;
 
   @Input() label: string = "";
   @Input() placeholder: string = "common.input.placeholder";
-  @Input() minValue!: number;
-  @Input() maxValue!: number;
+  @Input() minValue?: number;
+  @Input() maxValue?: number;
   @Input() isPercentage: boolean = false;
   @Input() isCurrency: boolean = false;
 
@@ -27,7 +27,7 @@ export class SmInputNumberComponent implements OnInit, ControlValueAccessor {
    * @TODO create a currency service (or directive) to manage locale currencies
    */
   currency = "$";
-  formControl!: FormControl;
+  formControl?: FormControl;
 
   constructor(
     @Optional()
@@ -51,7 +51,7 @@ export class SmInputNumberComponent implements OnInit, ControlValueAccessor {
   formControlCreator() {
     if (this.formControlName) {
       if (this.controlContainer) {
-        this.formControl = this.controlContainer.control!.get(this.formControlName)! as FormControl;
+        this.formControl = this.controlContainer.control!.get(this.formControlName) as FormControl;
       } else {
         console.error("Can't find parent FormGroup directive");
       }
