@@ -100,7 +100,9 @@
       "intro3": "Your HOUSING COSTS are a REASONABLE AMOUNT of your monthly income.",
       "text3": "This contributes to a strong financial position for you as housing is often the most expensive component of our finances. Great job here!",
       "intro4": "Your HOUSING COSTS are a LOW AMOUNT of your monthly income.",
-      "text4": "This is a huge boon to your financial stability and strength as housing is often the most expensive component of our finances. Great job."
+      "text4": "This is a huge boon to your financial stability and strength as housing is often the most expensive component of our finances. Great job.",
+      "intro5": "You do NOT HAVE HOUSING COSTS",
+      "text5": "This is a huge boon to your financial stability and strength as housing is often the most expensive component of our finances. Great job."
     },
     "housingSituation": {
       "title": "Housing situation",

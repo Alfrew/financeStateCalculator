@@ -33,18 +33,18 @@ export class PrioritiesInsightsComponent implements OnInit {
    * Used to check the level 1 of the priorities insights and update the first panel.
    */
   private checkLevel1() {
+    let percentageList: number[] = [-100, -40, -20, 0, 10, 20, 40, 60, 80];
     let totalIncome: number = this.financeStateData.income.employment + this.financeStateData.income.investment + this.financeStateData.income.other;
     let netIncomePercentage: number = ((totalIncome - this.financeStateData.income.expenses) / totalIncome) * 100;
-    let percentageList: number[] = [-100, -40, -20, 0, 10, 20, 40, 60, 80];
-    let stepLevel: number = 0;
+    let insightLevel: number = 0;
     do {
-      stepLevel++;
-    } while (netIncomePercentage > percentageList[stepLevel - 1]);
-    this.panelList[0] = {
+      insightLevel++;
+    } while (netIncomePercentage > percentageList[insightLevel - 1]);
+    this.panelList.push({
       title: "priorities.l1.title",
-      intro: "priorities.l1.intro" + stepLevel,
-      text: "priorities.l1.text" + stepLevel,
-    };
+      intro: "priorities.l1.intro" + insightLevel,
+      text: "priorities.l1.text" + insightLevel,
+    });
   }
 
   /**
@@ -52,17 +52,17 @@ export class PrioritiesInsightsComponent implements OnInit {
    */
   private checkLevel2() {
     let debtInterests: LiabilitiesInterests = this.financeStateData.liabilities.interests;
-    let stepLevel: number = 2;
+    let insightLevel: number = 2;
     for (let debt in debtInterests) {
       if (debtInterests[debt as keyof LiabilitiesInterests] > 7) {
-        stepLevel = 1;
+        insightLevel = 1;
       }
     }
-    this.panelList[1] = {
+    this.panelList.push({
       title: "priorities.l2.title",
-      intro: "priorities.l2.intro" + stepLevel,
-      text: "priorities.l2.text" + stepLevel,
-    };
+      intro: "priorities.l2.intro" + insightLevel,
+      text: "priorities.l2.text" + insightLevel,
+    });
   }
 
   /**
@@ -71,18 +71,18 @@ export class PrioritiesInsightsComponent implements OnInit {
   private checkLevel3() {
     let emergencyFund: number = this.financeStateData.financialAssets.emergencyFund;
     let monthlyExpenses: number = this.financeStateData.income.expenses / 12;
-    let stepLevel: number = 1;
+    let insightLevel: number = 1;
     if (emergencyFund > 0) {
-      stepLevel = 2;
-      if (emergencyFund > monthlyExpenses) {
-        stepLevel = 3;
+      insightLevel = 2;
+      if (emergencyFund > monthlyExpenses * 3) {
+        insightLevel = 3;
       }
     }
-    this.panelList[2] = {
+    this.panelList.push({
       title: "priorities.l3.title",
-      intro: "priorities.l3.intro" + stepLevel,
-      text: "priorities.l3.text" + stepLevel,
-    };
+      intro: "priorities.l3.intro" + insightLevel,
+      text: "priorities.l3.text" + insightLevel,
+    });
   }
 
   /**
@@ -95,15 +95,15 @@ export class PrioritiesInsightsComponent implements OnInit {
       this.financeStateData.financialAssets.stocks +
       this.financeStateData.financialAssets.crypto +
       this.financeStateData.financialAssets.gold;
-    let stepLevel: number = 1;
+    let insightLevel: number = 1;
     if (investments > 0) {
-      stepLevel = 2;
+      insightLevel = 2;
     }
-    this.panelList[3] = {
+    this.panelList.push({
       title: "priorities.l4.title",
-      intro: "priorities.l4.intro" + stepLevel,
-      text: "priorities.l4.text" + stepLevel,
-    };
+      intro: "priorities.l4.intro" + insightLevel,
+      text: "priorities.l4.text" + insightLevel,
+    });
   }
 
   /**
@@ -112,19 +112,19 @@ export class PrioritiesInsightsComponent implements OnInit {
   private checkLevel5() {
     let debtInterests: LiabilitiesInterests = this.financeStateData.liabilities.interests;
     let totalDebt: number = 0;
-    let stepLevel: number = 1;
+    let insightLevel: number = 1;
     for (let debt in debtInterests) {
       if (debtInterests[debt as keyof LiabilitiesInterests] > 0 && debtInterests[debt as keyof LiabilitiesInterests] < 7) {
         totalDebt += this.financeStateData.liabilities[debt as keyof LiabilitiesInterests];
       }
     }
     if (totalDebt === 0) {
-      stepLevel = 2;
+      insightLevel = 2;
     }
-    this.panelList[4] = {
+    this.panelList.push({
       title: "priorities.l5.title",
-      intro: "priorities.l5.intro" + stepLevel,
-      text: "priorities.l5.text" + stepLevel,
-    };
+      intro: "priorities.l5.intro" + insightLevel,
+      text: "priorities.l5.text" + insightLevel,
+    });
   }
 }
