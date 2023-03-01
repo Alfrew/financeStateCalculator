@@ -15,13 +15,13 @@ export class DebtInsightsComponent implements OnInit {
   panelList: Panel[] = [];
 
   ngOnInit(): void {
-    this.returnPrioritiesInsights();
+    this.returnDebtsInsights();
   }
 
   /**
-   * Used to check all priorities step levels.
+   * Used to check all debts insights.
    */
-  returnPrioritiesInsights() {
+  returnDebtsInsights() {
     this.checkCreditCardToSavings();
     this.checkCreditCardToIncome();
     this.checkDebtServiceToIncome();
@@ -88,7 +88,7 @@ export class DebtInsightsComponent implements OnInit {
     for (let debt in debtInterests) {
       totalMonthlyDebt += this.financeStateData.liabilities.monthlyPayment[debt as keyof LiabilitiesBase];
     }
-    let debtToMonthlyIncome = (totalMonthlyDebt / monthlyIncome) * 100;
+    let debtToMonthlyIncome: number = (totalMonthlyDebt / monthlyIncome) * 100;
     let insightLevel: number = 0;
     do {
       insightLevel++;
@@ -108,7 +108,7 @@ export class DebtInsightsComponent implements OnInit {
     let totalIncome: number = this.financeStateData.income.employment + this.financeStateData.income.investment + this.financeStateData.income.other;
     let monthlyIncome: number = totalIncome / 12;
     let monthlyCarLoan: number = this.financeStateData.liabilities.monthlyPayment.carLoan;
-    let loanToIncome = (monthlyCarLoan / monthlyIncome) * 100;
+    let loanToIncome: number = (monthlyCarLoan / monthlyIncome) * 100;
     let insightLevel: number = 0;
     do {
       insightLevel++;

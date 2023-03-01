@@ -179,7 +179,7 @@
     "stocksDebt": {
       "title": "Stocks vs. High interest debt",
       "intro1": "You do NOT HAVE investments in STOCKS",
-      "text1": "",
+      "text1": "In general, when trying to determine whether its better to invest money or pay down debt, the number one thing to look at is the interest rate associated with the debt. If it is higher than 7% then that means that it would make the most sense to pay down this debt first before investing your money. That's because in general, the stock market has historically earned investors about 7% per year over the long term. So, if your debt has a higher interest rate than this it means that the debt will grow faster than your investments will, thus decreasing your net worth over time.",
       "intro2": "You HAVE investments in STOCKS and HIGH INTEREST DEBT",
       "text2": "In general, this is not a good idea. When trying to determine whether its better to invest money or pay down debt, the number one thing to look at is the interest rate associated with the debt. If it is higher than 7% then that means that it would make the most sense to pay down this debt first before investing your money. That's because in general, the stock market has historically earned investors about 7% per year over the long term. So, if your debt has a higher interest rate than this it means that the debt will grow faster than your investments will, thus decreasing your net worth over time.",
       "intro3": "You HAVE investments in STOCKS and NO HIGH INTEREST DEBT",
@@ -213,7 +213,7 @@
       "text3": "Taking into the insight from the previous section on crypto, its very important to understand that having this much of your assets in crypto is going to expose you to considerable risk and possibly cause large amounts of damage to your financial picture if things don't work out the way you are betting.",
       "intro4": "Crypto represent a NOTICEABLE AMOUNT of your TOTAL ASSETS",
       "text4": "Taking into the insight from the previous section on crypto, its very important to be honest with yourself about whether or not this is the best decision for your financial goals. It may be time to reeavaluate.",
-      "intro5": "Crypto represent a SMALL AMOUNT of your TOTAL ASSETS",
+      "intro5": "Crypto represent a LOW PERCENTAGE of your TOTAL ASSETS",
       "text5": "If we want to follow the best practices based off all the information we know about investing, this is the most responsible amount of money to use for this purpose. As your investment journey continues, keep checking in with yourself to make sure you are comfortable with the amount of money you are putting at risk in this asset class."
     }
   }

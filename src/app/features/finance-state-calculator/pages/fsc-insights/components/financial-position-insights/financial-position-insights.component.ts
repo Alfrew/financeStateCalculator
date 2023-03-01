@@ -87,7 +87,7 @@ export class FinancialPositionInsightsComponent implements OnInit {
     } else if (this.financeStateData.income.rent && this.financeStateData.income.rent > 0) {
       housingCost = this.financeStateData.income.rent;
     }
-    let liquidityToDebt = (housingCost / monthlyIncome) * 100;
+    let liquidityToDebt: number = (housingCost / monthlyIncome) * 100;
     let insightLevel: number = 0;
     do {
       insightLevel++;
