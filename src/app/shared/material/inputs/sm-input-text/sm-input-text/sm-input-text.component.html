@@ -1,7 +1,7 @@
 <ng-container *ngIf="formControl; else noControl">
   <mat-form-field appearance="fill">
-    <mat-label *ngIf="label">{{ label }}</mat-label>
-    <input matInput [formControl]="formControl" type="text" [placeholder]="placeholder">
+    <mat-label *ngIf="label">{{ label | translate }}</mat-label>
+    <input matInput [formControl]="formControl" type="text" [placeholder]="placeholder | translate">
   </mat-form-field>
 </ng-container>
 

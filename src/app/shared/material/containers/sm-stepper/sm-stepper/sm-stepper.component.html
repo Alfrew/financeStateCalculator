@@ -5,9 +5,9 @@
         <ng-container *ngIf="form" [ngTemplateOutlet]="contentTemplateRef" [ngTemplateOutletContext]="{$implicit:form}"></ng-container>
       </div>
       <div class="flex-end gap-1">
-        <button *ngIf="i>0" mat-flat-button color="primary" matStepperPrevious>{{ "Back" }}</button>
-        <button *ngIf="i<lastFormGroupListIndex" mat-flat-button color="primary" matStepperNext>{{ "Next" }}</button>
-        <button *ngIf="i===lastFormGroupListIndex" mat-flat-button color="primary" (click)="submitEmitter()">{{ "Submit" }}</button>
+        <button *ngIf="i>0" mat-flat-button color="primary" matStepperPrevious>{{ "Back" | translate }}</button>
+        <button *ngIf="i<lastFormGroupListIndex" mat-flat-button color="primary" matStepperNext>{{ "Next" | translate }}</button>
+        <button *ngIf="i===lastFormGroupListIndex" mat-flat-button color="primary" (click)="submitEmitter()">{{ "Submit" | translate }}</button>
       </div>
     </div>
   </mat-step>

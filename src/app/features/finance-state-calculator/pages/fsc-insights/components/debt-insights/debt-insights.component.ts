@@ -39,7 +39,7 @@ export class DebtInsightsComponent implements OnInit {
       case monthToPayDebt < 0:
         insightLevel = 1;
         break;
-      case monthToPayDebt === 0:
+      case this.financeStateData.liabilities.creditCard === 0:
         insightLevel = 4;
         break;
       case monthToPayDebt <= 1:
