@@ -14,4 +14,5 @@ export interface LiabilitiesInterests {
 
 export interface Liabilities extends LiabilitiesInterests {
   interests: LiabilitiesInterests;
+  monthlyPayment: LiabilitiesInterests;
 }

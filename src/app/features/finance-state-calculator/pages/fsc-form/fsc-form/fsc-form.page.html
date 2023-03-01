@@ -12,7 +12,7 @@
 
 
     <form class="form align-items-center" *ngIf="form === financialAssetsFormGroup" [formGroup]="financialAssetsFormGroup">
-      <div class="flex-2">
+      <div class="flex-1">
         <sm-input-number formControlName="cash" [isCurrency]="true" label="Cash (physical)"></sm-input-number>
         <sm-input-number formControlName="bank" [isCurrency]="true" label="Chequing account"></sm-input-number>
         <sm-input-number formControlName="emergencyFund" [isCurrency]="true" label="Emergency fund"></sm-input-number>
@@ -20,8 +20,8 @@
         <sm-input-number formControlName="GIC" [isCurrency]="true" label="GIC's"></sm-input-number>
         <sm-input-number formControlName="bonds" [isCurrency]="true" label="Bonds"></sm-input-number>
         <div class="align-items-center">
-          <sm-input-number formControlName="stocks" [isCurrency]="true" label="Stocks"></sm-input-number>
-          <sm-input-select formControlName="stocksDuration" [optionList]="stocksDurationList" label="Duration of investment"></sm-input-select>
+          <sm-input-number class="flex-1" formControlName="stocks" [isCurrency]="true" label="Stocks"></sm-input-number>
+          <sm-input-select class="flex-1" formControlName="stocksDuration" [optionList]="stocksDurationList" label="Duration of investment"></sm-input-select>
         </div>
         <sm-input-number formControlName="crypto" [isCurrency]="true" label="Crypto"></sm-input-number>
         <sm-input-number formControlName="gold" [isCurrency]="true" label="Gold"></sm-input-number>
@@ -44,7 +44,7 @@
 
 
     <form class="form align-items-center" *ngIf="form === physicalAssetsFormGroup" [formGroup]="physicalAssetsFormGroup">
-      <div class="flex-2">
+      <div class="flex-1">
         <sm-input-number formControlName="vehicle" [isCurrency]="true" label="Vehicle"></sm-input-number>
         <sm-input-number formControlName="property" [isCurrency]="true" label="Property (exl. mortgage)"></sm-input-number>
         <sm-input-number formControlName="equipment" [isCurrency]="true" label="Equipment"></sm-input-number>
@@ -63,7 +63,7 @@
 
 
     <form class="form align-items-center" *ngIf="form === liabilitiesFormGroup" [formGroup]="liabilitiesFormGroup">
-      <div class="flex-2">
+      <div class="flex-1">
         <sm-input-number formControlName="creditCard" [isCurrency]="true" label="Credit card"></sm-input-number>
         <sm-input-number formControlName="creditLine" [isCurrency]="true" label="Line of credit"></sm-input-number>
         <sm-input-number formControlName="studentLoan1" [isCurrency]="true" label="Student loan 1"></sm-input-number>
@@ -77,7 +77,21 @@
         <sm-input-number formControlName="other3" [isCurrency]="true" label="Other 3"></sm-input-number>
       </div>
 
-      <div class="flex-1" formGroupName="interests">
+      <div class="flex-1" formGroupName="monthlyPayment">
+        <sm-input-number formControlName="creditCard" [isCurrency]="true" label="Monthly payment"></sm-input-number>
+        <sm-input-number formControlName="creditLine" [isCurrency]="true" label="Monthly payment"></sm-input-number>
+        <sm-input-number formControlName="studentLoan1" [isCurrency]="true" label="Monthly payment"></sm-input-number>
+        <sm-input-number formControlName="studentLoan2" [isCurrency]="true" label="Monthly payment"></sm-input-number>
+        <sm-input-number formControlName="mortgage" [isCurrency]="true" label="Monthly payment"></sm-input-number>
+        <sm-input-number formControlName="carLoan" [isCurrency]="true" label="Monthly payment"></sm-input-number>
+        <sm-input-number formControlName="personalLoan" [isCurrency]="true" label="Monthly payment"></sm-input-number>
+        <sm-input-number formControlName="medicalDebt" [isCurrency]="true" label="Monthly payment"></sm-input-number>
+        <sm-input-number formControlName="other1" [isCurrency]="true" label="Monthly payment"></sm-input-number>
+        <sm-input-number formControlName="other2" [isCurrency]="true" label="Monthly payment"></sm-input-number>
+        <sm-input-number formControlName="other3" [isCurrency]="true" label="Monthly payment"></sm-input-number>
+      </div>
+
+      <div class="flex-2" formGroupName="interests">
         <sm-input-number formControlName="creditCard" [isPercentage]="true" label="Rate of change"></sm-input-number>
         <sm-input-number formControlName="creditLine" [isPercentage]="true" label="Rate of change"></sm-input-number>
         <sm-input-number formControlName="studentLoan1" [isPercentage]="true" label="Rate of change"></sm-input-number>

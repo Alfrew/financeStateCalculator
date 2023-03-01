@@ -52,9 +52,23 @@ export const FINANCIAL_STATE_DATA_MOCKUP: FinanceStateData = {
     carLoan: 15000,
     personalLoan: 0,
     medicalDebt: 0,
-    other1: 0,
+    other1: 400,
     other2: 0,
     other3: 0,
+
+    monthlyPayment: {
+      creditCard: 0,
+      creditLine: 0,
+      studentLoan1: 340,
+      studentLoan2: 0,
+      mortgage: 0,
+      carLoan: 190,
+      personalLoan: 0,
+      medicalDebt: 0,
+      other1: 80,
+      other2: 0,
+      other3: 0,
+    },
 
     interests: {
       creditCard: 0,
