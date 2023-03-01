@@ -37,7 +37,7 @@ export class FinancialPositionInsightsComponent implements OnInit {
     let insightLevel: number = 0;
     do {
       insightLevel++;
-    } while (age > ageList[insightLevel - 1]);
+    } while (age >= ageList[insightLevel - 1]);
     this.panelList.push({
       title: "position.age.title",
       intro: "position.age.intro" + insightLevel,
@@ -49,7 +49,7 @@ export class FinancialPositionInsightsComponent implements OnInit {
    * Used to check the liquidity to debt for the financial position insights and update the second panel.
    */
   private checkLiquidityToDebt() {
-    let liquidityList: number[] = [10, 25, 50, 75, 90, 99, 101];
+    let liquidityList: number[] = [10, 25, 50, 75, 90, 100, 101];
     let debtInterests: LiabilitiesInterests = this.financeStateData.liabilities.interests;
     let totalLiquidity: number =
       this.financeStateData.financialAssets.cash +
@@ -66,7 +66,7 @@ export class FinancialPositionInsightsComponent implements OnInit {
     let insightLevel: number = 0;
     do {
       insightLevel++;
-    } while (liquidityToDebt > liquidityList[insightLevel - 1]);
+    } while (liquidityToDebt >= liquidityList[insightLevel - 1]);
     this.panelList.push({
       title: "position.liquidity.title",
       intro: "position.liquidity.intro" + insightLevel,
@@ -78,7 +78,7 @@ export class FinancialPositionInsightsComponent implements OnInit {
    * Used to check the housing costs for the financial position insights and update the third panel.
    */
   private checkHousingCosts() {
-    let costList: number[] = [30, 20, 10, 1];
+    let costList: number[] = [30, 20, 10, 0];
     let totalIncome: number = this.financeStateData.income.employment + this.financeStateData.income.investment + this.financeStateData.income.other;
     let monthlyIncome: number = totalIncome / 12;
     let housingCost: number = 0;
@@ -91,7 +91,7 @@ export class FinancialPositionInsightsComponent implements OnInit {
     let insightLevel: number = 0;
     do {
       insightLevel++;
-    } while (liquidityToDebt < costList[insightLevel - 1]);
+    } while (liquidityToDebt <= costList[insightLevel - 1]);
     this.panelList.push({
       title: "position.housingCost.title",
       intro: "position.housingCost.intro" + insightLevel,

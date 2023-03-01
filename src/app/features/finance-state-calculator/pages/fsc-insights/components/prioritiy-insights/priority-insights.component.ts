@@ -5,11 +5,11 @@ import { FinanceStateData } from "src/app/features/finance-state-calculator/mode
 import { FINANCIAL_STATE_DATA_MOCKUP } from "src/app/features/finance-state-calculator/utils/financial-state-data-mockup";
 
 @Component({
-  selector: "fsc-priorities-insights",
-  templateUrl: "./priorities-insights.component.html",
-  styleUrls: ["./priorities-insights.component.scss"],
+  selector: "fsc-priority-insights",
+  templateUrl: "./priority-insights.component.html",
+  styleUrls: ["./priority-insights.component.scss"],
 })
-export class PrioritiesInsightsComponent implements OnInit {
+export class PriorityInsightsComponent implements OnInit {
   @Input() financeStateData: FinanceStateData = FINANCIAL_STATE_DATA_MOCKUP;
 
   panelList: Panel[] = [];
@@ -39,7 +39,7 @@ export class PrioritiesInsightsComponent implements OnInit {
     let insightLevel: number = 0;
     do {
       insightLevel++;
-    } while (netIncomePercentage > percentageList[insightLevel - 1]);
+    } while (netIncomePercentage >= percentageList[insightLevel - 1]);
     this.panelList.push({
       title: "priorities.l1.title",
       intro: "priorities.l1.intro" + insightLevel,

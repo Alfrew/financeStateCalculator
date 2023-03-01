@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PrioritiesInsightsComponent } from "./priorities-insights.component";
+import { PriorityInsightsComponent } from "./priority-insights.component";
 
 describe("PrioritiesInsightsComponent", () => {
-  let component: PrioritiesInsightsComponent;
-  let fixture: ComponentFixture<PrioritiesInsightsComponent>;
+  let component: PriorityInsightsComponent;
+  let fixture: ComponentFixture<PriorityInsightsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrioritiesInsightsComponent],
+      declarations: [PriorityInsightsComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PrioritiesInsightsComponent);
+    fixture = TestBed.createComponent(PriorityInsightsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
