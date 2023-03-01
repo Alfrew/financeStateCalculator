@@ -1,10 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Panel } from "src/app/shared/utils/panel-utils";
 import { LiabilitiesBase } from "src/app/features/finance-state-calculator/models/liabilities";
-import { FinanceStateData } from "src/app/features/finance-state-calculator/models/finance-state-data";
-import { FINANCIAL_STATE_DATA_MOCKUP } from "src/app/features/finance-state-calculator/utils/financial-state-data-mockup";
-import { FinancialAssetsBase } from "src/app/features/finance-state-calculator/models/financial-assets";
 import { PhysicalAssetsBase } from "src/app/features/finance-state-calculator/models/physical-assets";
+import { FinanceStateData } from "src/app/features/finance-state-calculator/models/finance-state-data";
+import { FinancialAssetsBase } from "src/app/features/finance-state-calculator/models/financial-assets";
 
 @Component({
   selector: "fsc-investment-insights",
@@ -12,7 +11,7 @@ import { PhysicalAssetsBase } from "src/app/features/finance-state-calculator/mo
   styleUrls: ["./investment-insights.component.scss"],
 })
 export class InvestmentInsightsComponent implements OnInit {
-  @Input() financeStateData: FinanceStateData = FINANCIAL_STATE_DATA_MOCKUP;
+  @Input() financeStateData!: FinanceStateData;
 
   panelList: Panel[] = [];
 

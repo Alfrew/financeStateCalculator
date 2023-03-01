@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
 import { InputSelectOption } from "src/app/shared/utils/input-select-utils";
 import { FinanceStateData } from "../../../models/finance-state-data";
 import { FinanceStateDataService } from "../../../services/finance-state-data.service";
@@ -28,7 +29,7 @@ export class FscFormPage {
     stocks: new FormControl(0),
     stocksDuration: new FormControl("1"),
     crypto: new FormControl(0),
-    gold: new FormControl(3),
+    gold: new FormControl(0),
     other: new FormControl(0),
     interests: new FormGroup({
       cash: new FormControl(-1),
@@ -39,7 +40,7 @@ export class FscFormPage {
       bonds: new FormControl(0),
       stocks: new FormControl(7),
       crypto: new FormControl(0),
-      gold: new FormControl(0),
+      gold: new FormControl(3),
       other: new FormControl(0),
     }),
   });
@@ -110,7 +111,7 @@ export class FscFormPage {
     { value: "4", viewValue: "10+ years" },
   ];
 
-  constructor(private financeStateDatasSRV: FinanceStateDataService) {}
+  constructor(private financeStateDatasSRV: FinanceStateDataService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -126,6 +127,6 @@ export class FscFormPage {
     };
 
     this.financeStateDatasSRV.updateFinanceStateData(responses);
-    console.log(responses);
+    this.router.navigate(["/results"]);
   }
 }
