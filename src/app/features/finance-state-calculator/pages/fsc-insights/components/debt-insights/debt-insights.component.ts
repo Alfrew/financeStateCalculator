@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Panel } from "src/app/shared/utils/panel-utils";
-import { LiabilitiesInterests } from "src/app/features/finance-state-calculator/models/liabilities";
+import { LiabilitiesBase } from "src/app/features/finance-state-calculator/models/liabilities";
 import { FinanceStateData } from "src/app/features/finance-state-calculator/models/finance-state-data";
 import { FINANCIAL_STATE_DATA_MOCKUP } from "src/app/features/finance-state-calculator/utils/financial-state-data-mockup";
 
@@ -81,12 +81,12 @@ export class DebtInsightsComponent implements OnInit {
    */
   private checkDebtServiceToIncome() {
     let debtList: number[] = [100, 50, 25, 15, 0];
-    let debtInterests: LiabilitiesInterests = this.financeStateData.liabilities.interests;
+    let debtInterests: LiabilitiesBase = this.financeStateData.liabilities.interests;
     let totalIncome: number = this.financeStateData.income.employment + this.financeStateData.income.investment + this.financeStateData.income.other;
     let monthlyIncome: number = totalIncome / 12;
     let totalMonthlyDebt: number = 0;
     for (let debt in debtInterests) {
-      totalMonthlyDebt += this.financeStateData.liabilities.monthlyPayment[debt as keyof LiabilitiesInterests];
+      totalMonthlyDebt += this.financeStateData.liabilities.monthlyPayment[debt as keyof LiabilitiesBase];
     }
     let debtToMonthlyIncome = (totalMonthlyDebt / monthlyIncome) * 100;
     let insightLevel: number = 0;

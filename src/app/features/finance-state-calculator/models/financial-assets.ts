@@ -1,4 +1,4 @@
-export interface FinancialAssetsInterests {
+export interface FinancialAssetsBase {
   cash: number;
   bank: number;
   emergencyFund: number;
@@ -11,7 +11,7 @@ export interface FinancialAssetsInterests {
   other: number;
 }
 
-export interface FinancialAssets extends FinancialAssetsInterests {
+export interface FinancialAssets extends FinancialAssetsBase {
   stocksDuration: string;
-  interests: FinancialAssetsInterests;
+  interests: FinancialAssetsBase;
 }

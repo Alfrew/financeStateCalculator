@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Panel } from "src/app/shared/utils/panel-utils";
-import { LiabilitiesInterests } from "src/app/features/finance-state-calculator/models/liabilities";
+import { LiabilitiesBase } from "src/app/features/finance-state-calculator/models/liabilities";
 import { FinanceStateData } from "src/app/features/finance-state-calculator/models/finance-state-data";
 import { FINANCIAL_STATE_DATA_MOCKUP } from "src/app/features/finance-state-calculator/utils/financial-state-data-mockup";
 
@@ -50,7 +50,7 @@ export class FinancialPositionInsightsComponent implements OnInit {
    */
   private checkLiquidityToDebt() {
     let liquidityList: number[] = [10, 25, 50, 75, 90, 100, 101];
-    let debtInterests: LiabilitiesInterests = this.financeStateData.liabilities.interests;
+    let debtInterests: LiabilitiesBase = this.financeStateData.liabilities.interests;
     let totalLiquidity: number =
       this.financeStateData.financialAssets.cash +
       this.financeStateData.financialAssets.bank +
@@ -59,7 +59,7 @@ export class FinancialPositionInsightsComponent implements OnInit {
     let totalDebt: number = 0;
     for (let debt in debtInterests) {
       if (debt !== "mortgage") {
-        totalDebt += this.financeStateData.liabilities[debt as keyof LiabilitiesInterests];
+        totalDebt += this.financeStateData.liabilities[debt as keyof LiabilitiesBase];
       }
     }
     let liquidityToDebt: number = (totalLiquidity / totalDebt) * 100;

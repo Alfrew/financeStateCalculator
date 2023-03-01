@@ -1,4 +1,4 @@
-export interface LiabilitiesInterests {
+export interface LiabilitiesBase {
   creditCard: number;
   creditLine: number;
   studentLoan1: number;
@@ -12,7 +12,7 @@ export interface LiabilitiesInterests {
   other3: number;
 }
 
-export interface Liabilities extends LiabilitiesInterests {
-  interests: LiabilitiesInterests;
-  monthlyPayment: LiabilitiesInterests;
+export interface Liabilities extends LiabilitiesBase {
+  interests: LiabilitiesBase;
+  monthlyPayment: LiabilitiesBase;
 }

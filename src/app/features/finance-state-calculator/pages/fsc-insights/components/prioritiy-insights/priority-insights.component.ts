@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Panel } from "src/app/shared/utils/panel-utils";
-import { LiabilitiesInterests } from "src/app/features/finance-state-calculator/models/liabilities";
+import { LiabilitiesBase } from "src/app/features/finance-state-calculator/models/liabilities";
 import { FinanceStateData } from "src/app/features/finance-state-calculator/models/finance-state-data";
 import { FINANCIAL_STATE_DATA_MOCKUP } from "src/app/features/finance-state-calculator/utils/financial-state-data-mockup";
 
@@ -51,10 +51,10 @@ export class PriorityInsightsComponent implements OnInit {
    * Used to check the level 2 of the priorities insights and update the second panel.
    */
   private checkLevel2() {
-    let debtInterests: LiabilitiesInterests = this.financeStateData.liabilities.interests;
+    let debtInterests: LiabilitiesBase = this.financeStateData.liabilities.interests;
     let insightLevel: number = 2;
     for (let debt in debtInterests) {
-      if (debtInterests[debt as keyof LiabilitiesInterests] > 7) {
+      if (debtInterests[debt as keyof LiabilitiesBase] > 7) {
         insightLevel = 1;
       }
     }
@@ -110,12 +110,12 @@ export class PriorityInsightsComponent implements OnInit {
    * Used to check the level 5 of the priorities insights and update the last panel.
    */
   private checkLevel5() {
-    let debtInterests: LiabilitiesInterests = this.financeStateData.liabilities.interests;
+    let debtInterests: LiabilitiesBase = this.financeStateData.liabilities.interests;
     let totalDebt: number = 0;
     let insightLevel: number = 1;
     for (let debt in debtInterests) {
-      if (debtInterests[debt as keyof LiabilitiesInterests] > 0 && debtInterests[debt as keyof LiabilitiesInterests] < 7) {
-        totalDebt += this.financeStateData.liabilities[debt as keyof LiabilitiesInterests];
+      if (debtInterests[debt as keyof LiabilitiesBase] > 0 && debtInterests[debt as keyof LiabilitiesBase] < 7) {
+        totalDebt += this.financeStateData.liabilities[debt as keyof LiabilitiesBase];
       }
     }
     if (totalDebt === 0) {

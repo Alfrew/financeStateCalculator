@@ -1,4 +1,4 @@
-export interface PhysicalAssetsInterests {
+export interface PhysicalAssetsBase {
   vehicle: number;
   property: number;
   equipment: number;
@@ -6,6 +6,6 @@ export interface PhysicalAssetsInterests {
   other: number;
 }
 
-export interface PhysicalAssets extends PhysicalAssetsInterests {
-  interests: PhysicalAssetsInterests;
+export interface PhysicalAssets extends PhysicalAssetsBase {
+  interests: PhysicalAssetsBase;
 }
