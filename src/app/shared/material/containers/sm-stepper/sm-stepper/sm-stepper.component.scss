@@ -5,6 +5,11 @@
   justify-content: flex-end;
 }
 
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 .gap-1 {
   gap: 8px;
 }

@@ -10,6 +10,7 @@ export class SmStepperComponent {
   @Input() formGroupList: FormGroup[] = [];
   @Input() labelList: string[] = [];
   @ContentChild("content", { static: false }) contentTemplateRef!: TemplateRef<any>;
+  @Output() reset: EventEmitter<any> = new EventEmitter<any>();
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
@@ -19,6 +20,13 @@ export class SmStepperComponent {
    */
   get lastFormGroupListIndex() {
     return this.formGroupList.length - 1;
+  }
+
+  /**
+   * Used to emit the click event of the reset button to the parent component.
+   */
+  resetEmitter() {
+    this.reset.emit();
   }
 
   /**
