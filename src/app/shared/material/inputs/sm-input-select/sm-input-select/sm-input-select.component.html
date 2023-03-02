@@ -1,6 +1,6 @@
 <ng-container *ngIf="formControl; else noControl">
   <ng-container *ngIf="groupedOptionList; else ungrouped">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label *ngIf="label">{{ label | translate }}</mat-label>
       <mat-select [formControl]="formControl" panelClass="custom-panel" [multiple]="isMultiple" [placeholder]="placeholder | translate">
         <mat-option *ngIf="hasClearOption">{{ "common.select.clear" | translate }}</mat-option>
@@ -15,7 +15,7 @@
   </ng-container>
 
   <ng-template #ungrouped>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label *ngIf="label">{{ label | translate }}</mat-label>
       <mat-select [formControl]="formControl" panelClass="custom-panel" [multiple]="isMultiple" [placeholder]="placeholder | translate">
         <mat-option *ngIf="hasClearOption">{{ "common.select.clear" | translate }}</mat-option>
