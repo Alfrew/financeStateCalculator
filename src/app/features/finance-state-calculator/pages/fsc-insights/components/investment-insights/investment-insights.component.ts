@@ -49,9 +49,9 @@ export class InvestmentInsightsComponent implements OnInit {
         insightLevel = 3;
     }
     this.panelList.push({
-      title: "investments.emergencyFund.title",
-      intro: "investments.emergencyFund.intro" + insightLevel,
-      text: "investments.emergencyFund.text" + insightLevel,
+      title: "insights.investments.emergencyFund.title",
+      intro: "insights.investments.emergencyFund.intro" + insightLevel,
+      text: "insights.investments.emergencyFund.text" + insightLevel,
     });
   }
 
@@ -79,9 +79,9 @@ export class InvestmentInsightsComponent implements OnInit {
         insightLevel = 3;
     }
     this.panelList.push({
-      title: "investments.stocksDebt.title",
-      intro: "investments.stocksDebt.intro" + insightLevel,
-      text: "investments.stocksDebt.text" + insightLevel,
+      title: "insights.investments.stocksDebt.title",
+      intro: "insights.investments.stocksDebt.intro" + insightLevel,
+      text: "insights.investments.stocksDebt.text" + insightLevel,
     });
   }
 
@@ -105,9 +105,9 @@ export class InvestmentInsightsComponent implements OnInit {
         insightLevel = 4;
     }
     this.panelList.push({
-      title: "investments.stocksDuration.title",
-      intro: "investments.stocksDuration.intro" + insightLevel,
-      text: "investments.stocksDuration.text" + insightLevel,
+      title: "insights.investments.stocksDuration.title",
+      intro: "insights.investments.stocksDuration.intro" + insightLevel,
+      text: "insights.investments.stocksDuration.text" + insightLevel,
     });
   }
 
@@ -121,9 +121,9 @@ export class InvestmentInsightsComponent implements OnInit {
       insightLevel = 2;
     }
     this.panelList.push({
-      title: "investments.crypto.title",
-      intro: "investments.crypto.intro" + insightLevel,
-      text: "investments.crypto.text" + insightLevel,
+      title: "insights.investments.crypto.title",
+      intro: "insights.investments.crypto.intro" + insightLevel,
+      text: "insights.investments.crypto.text" + insightLevel,
     });
   }
 
@@ -151,9 +151,9 @@ export class InvestmentInsightsComponent implements OnInit {
       insightLevel++;
     } while (cryptoToTotalAssets <= cryptoList[insightLevel - 1]);
     this.panelList.push({
-      title: "investments.cryptoPercentage.title",
-      intro: "investments.cryptoPercentage.intro" + insightLevel,
-      text: "investments.cryptoPercentage.text" + insightLevel,
+      title: "insights.investments.cryptoPercentage.title",
+      intro: "insights.investments.cryptoPercentage.intro" + insightLevel,
+      text: "insights.investments.cryptoPercentage.text" + insightLevel,
     });
   }
 }

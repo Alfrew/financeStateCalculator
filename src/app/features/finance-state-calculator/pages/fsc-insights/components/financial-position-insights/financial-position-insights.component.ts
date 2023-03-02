@@ -38,9 +38,9 @@ export class FinancialPositionInsightsComponent implements OnInit {
       insightLevel++;
     } while (age >= ageList[insightLevel - 1]);
     this.panelList.push({
-      title: "position.age.title",
-      intro: "position.age.intro" + insightLevel,
-      text: "position.age.text" + insightLevel,
+      title: "insights.position.age.title",
+      intro: "insights.position.age.intro" + insightLevel,
+      text: "insights.position.age.text" + insightLevel,
     });
   }
 
@@ -67,9 +67,9 @@ export class FinancialPositionInsightsComponent implements OnInit {
       insightLevel++;
     } while (liquidityToDebt >= liquidityList[insightLevel - 1]);
     this.panelList.push({
-      title: "position.liquidity.title",
-      intro: "position.liquidity.intro" + insightLevel,
-      text: "position.liquidity.text" + insightLevel,
+      title: "insights.position.liquidity.title",
+      intro: "insights.position.liquidity.intro" + insightLevel,
+      text: "insights.position.liquidity.text" + insightLevel,
     });
   }
 
@@ -92,9 +92,9 @@ export class FinancialPositionInsightsComponent implements OnInit {
       insightLevel++;
     } while (liquidityToDebt <= costList[insightLevel - 1]);
     this.panelList.push({
-      title: "position.housingCost.title",
-      intro: "position.housingCost.intro" + insightLevel,
-      text: "position.housingCost.text" + insightLevel,
+      title: "insights.position.housingCost.title",
+      intro: "insights.position.housingCost.intro" + insightLevel,
+      text: "insights.position.housingCost.text" + insightLevel,
     });
   }
 
@@ -108,9 +108,9 @@ export class FinancialPositionInsightsComponent implements OnInit {
       insightLevel = 2;
     }
     this.panelList.push({
-      title: "position.housingSituation.title",
-      intro: "position.housingSituation.intro" + insightLevel,
-      text: "position.housingSituation.text" + insightLevel,
+      title: "insights.position.housingSituation.title",
+      intro: "insights.position.housingSituation.intro" + insightLevel,
+      text: "insights.position.housingSituation.text" + insightLevel,
     });
   }
 }

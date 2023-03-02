@@ -40,9 +40,9 @@ export class PriorityInsightsComponent implements OnInit {
       insightLevel++;
     } while (netIncomePercentage >= percentageList[insightLevel - 1]);
     this.panelList.push({
-      title: "priorities.l1.title",
-      intro: "priorities.l1.intro" + insightLevel,
-      text: "priorities.l1.text" + insightLevel,
+      title: "insights.priorities.l1.title",
+      intro: "insights.priorities.l1.intro" + insightLevel,
+      text: "insights.priorities.l1.text" + insightLevel,
     });
   }
 
@@ -58,9 +58,9 @@ export class PriorityInsightsComponent implements OnInit {
       }
     }
     this.panelList.push({
-      title: "priorities.l2.title",
-      intro: "priorities.l2.intro" + insightLevel,
-      text: "priorities.l2.text" + insightLevel,
+      title: "insights.priorities.l2.title",
+      intro: "insights.priorities.l2.intro" + insightLevel,
+      text: "insights.priorities.l2.text" + insightLevel,
     });
   }
 
@@ -78,9 +78,9 @@ export class PriorityInsightsComponent implements OnInit {
       }
     }
     this.panelList.push({
-      title: "priorities.l3.title",
-      intro: "priorities.l3.intro" + insightLevel,
-      text: "priorities.l3.text" + insightLevel,
+      title: "insights.priorities.l3.title",
+      intro: "insights.priorities.l3.intro" + insightLevel,
+      text: "insights.priorities.l3.text" + insightLevel,
     });
   }
 
@@ -99,9 +99,9 @@ export class PriorityInsightsComponent implements OnInit {
       insightLevel = 2;
     }
     this.panelList.push({
-      title: "priorities.l4.title",
-      intro: "priorities.l4.intro" + insightLevel,
-      text: "priorities.l4.text" + insightLevel,
+      title: "insights.priorities.l4.title",
+      intro: "insights.priorities.l4.intro" + insightLevel,
+      text: "insights.priorities.l4.text" + insightLevel,
     });
   }
 
@@ -121,9 +121,9 @@ export class PriorityInsightsComponent implements OnInit {
       insightLevel = 2;
     }
     this.panelList.push({
-      title: "priorities.l5.title",
-      intro: "priorities.l5.intro" + insightLevel,
-      text: "priorities.l5.text" + insightLevel,
+      title: "insights.priorities.l5.title",
+      intro: "insights.priorities.l5.intro" + insightLevel,
+      text: "insights.priorities.l5.text" + insightLevel,
     });
   }
 }

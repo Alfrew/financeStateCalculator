@@ -50,9 +50,9 @@ export class DebtInsightsComponent implements OnInit {
         break;
     }
     this.panelList.push({
-      title: "debt.savings.title",
-      intro: "debt.savings.intro" + insightLevel,
-      text: "debt.savings.text" + insightLevel,
+      title: "insights.debt.savings.title",
+      intro: "insights.debt.savings.intro" + insightLevel,
+      text: "insights.debt.savings.text" + insightLevel,
     });
   }
 
@@ -69,9 +69,9 @@ export class DebtInsightsComponent implements OnInit {
       insightLevel++;
     } while (monthlyIncomeToDebt <= debtList[insightLevel - 1]);
     this.panelList.push({
-      title: "debt.income.title",
-      intro: "debt.income.intro" + insightLevel,
-      text: "debt.income.text" + insightLevel,
+      title: "insights.debt.income.title",
+      intro: "insights.debt.income.intro" + insightLevel,
+      text: "insights.debt.income.text" + insightLevel,
     });
   }
 
@@ -93,9 +93,9 @@ export class DebtInsightsComponent implements OnInit {
       insightLevel++;
     } while (debtToMonthlyIncome <= debtList[insightLevel - 1]);
     this.panelList.push({
-      title: "debt.debtService.title",
-      intro: "debt.debtService.intro" + insightLevel,
-      text: "debt.debtService.text" + insightLevel,
+      title: "insights.debt.debtService.title",
+      intro: "insights.debt.debtService.intro" + insightLevel,
+      text: "insights.debt.debtService.text" + insightLevel,
     });
   }
 
@@ -113,9 +113,9 @@ export class DebtInsightsComponent implements OnInit {
       insightLevel++;
     } while (loanToIncome <= loanList[insightLevel - 1]);
     this.panelList.push({
-      title: "debt.carLoan.title",
-      intro: "debt.carLoan.intro" + insightLevel,
-      text: "debt.carLoan.text" + insightLevel,
+      title: "insights.debt.carLoan.title",
+      intro: "insights.debt.carLoan.intro" + insightLevel,
+      text: "insights.debt.carLoan.text" + insightLevel,
     });
   }
 }
