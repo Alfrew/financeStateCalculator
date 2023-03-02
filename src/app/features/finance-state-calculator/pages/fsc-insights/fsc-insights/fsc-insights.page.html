@@ -1,1 +1,6 @@
-<p>fsc-insights works!</p>
+<ng-container *ngIf="financeStateData">
+  <fsc-priority-insights [financeStateData]="financeStateData"></fsc-priority-insights>
+  <fsc-financial-position-insights [financeStateData]="financeStateData"></fsc-financial-position-insights>
+  <fsc-debt-insights [financeStateData]="financeStateData"></fsc-debt-insights>
+  <fsc-investment-insights [financeStateData]="financeStateData"></fsc-investment-insights>
+</ng-container>

@@ -7,9 +7,10 @@ import { FormGroup } from "@angular/forms";
   styleUrls: ["./sm-stepper.component.scss"],
 })
 export class SmStepperComponent {
-  @Input() formGroups: FormGroup[] = [];
-  @Input() labels: string[] = [];
+  @Input() formGroupList: FormGroup[] = [];
+  @Input() labelList: string[] = [];
   @ContentChild("content", { static: false }) contentTemplateRef!: TemplateRef<any>;
+  @Output() reset: EventEmitter<any> = new EventEmitter<any>();
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
@@ -17,8 +18,15 @@ export class SmStepperComponent {
   /**
    * Used to get the last index of the form group list.
    */
-  get lastFormGroupsIndex() {
-    return this.formGroups.length - 1;
+  get lastFormGroupListIndex() {
+    return this.formGroupList.length - 1;
+  }
+
+  /**
+   * Used to emit the click event of the reset button to the parent component.
+   */
+  resetEmitter() {
+    this.reset.emit();
   }
 
   /**

@@ -1,9 +1,9 @@
 <ng-container *ngIf="formControl; else noControl">
-  <mat-form-field appearance="fill">
-    <mat-label *ngIf="label">{{ label }}</mat-label>
-    <input matInput [formControl]="formControl" type="number" [min]="minValue" [max]="maxValue" [placeholder]="placeholder">
+  <mat-form-field appearance="outline">
+    <mat-label *ngIf="label">{{ label | translate}}</mat-label>
+    <input matInput [formControl]="formControl" type="number" [min]="minValue" [max]="maxValue" [placeholder]="placeholder | translate">
     <span matTextSuffix *ngIf="isPercentage">%</span>
-    <span matTextSuffix *ngIf="isCurrency">{{ currency }}</span>
+    <span matTextSuffix *ngIf="isCurrency">{{ currency | translate }}</span>
   </mat-form-field>
 </ng-container>
 

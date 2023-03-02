@@ -1,0 +1,9 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let panel of panelList">
+    <mat-expansion-panel-header>
+      <mat-panel-title [innerHTML]="panel.title | translate"></mat-panel-title>
+      <mat-panel-description [innerHTML]="panel.intro | translate"></mat-panel-description>
+    </mat-expansion-panel-header>
+    <p [innerHTML]="panel.text | translate"></p>
+  </mat-expansion-panel>
+</mat-accordion>

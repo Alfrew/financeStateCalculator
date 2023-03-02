@@ -1,7 +1,12 @@
+import { Router } from "@angular/router";
 import { Component } from "@angular/core";
+import { Incomes } from "../../../models/incomes";
 import { FormControl, FormGroup } from "@angular/forms";
-import { InputSelectOption } from "src/app/shared/utils/input-select-utils";
+import { Liabilities } from "../../../models/liabilities";
+import { PhysicalAssets } from "../../../models/physical-assets";
+import { FinancialAssets } from "../../../models/financial-assets";
 import { FinanceStateData } from "../../../models/finance-state-data";
+import { InputSelectOption } from "src/app/shared/utils/input-select-utils";
 import { FinanceStateDataService } from "../../../services/finance-state-data.service";
 
 @Component({
@@ -10,72 +15,91 @@ import { FinanceStateDataService } from "../../../services/finance-state-data.se
 })
 export class FscFormPage {
   incomeFormGroup: FormGroup = new FormGroup({
-    age: new FormControl(),
-    employment: new FormControl(),
-    investment: new FormControl(),
-    other: new FormControl(),
-    expenses: new FormControl(),
+    age: new FormControl(0),
+    employment: new FormControl(0),
+    investment: new FormControl(0),
+    other: new FormControl(0),
+    expenses: new FormControl(0),
     homeOwner: new FormControl("false"),
-    rent: new FormControl(),
+    rent: new FormControl(0),
   });
   financialAssetsFormGroup: FormGroup = new FormGroup({
-    cash: new FormControl(),
-    cashPercentage: new FormControl(),
-    bank: new FormControl(),
-    bankPercentage: new FormControl(),
-    emergencyFund: new FormControl(),
-    emergencyFundPercentage: new FormControl(),
-    savings: new FormControl(),
-    savingsPercentage: new FormControl(),
-    GIC: new FormControl(),
-    GICPercentage: new FormControl(),
-    bonds: new FormControl(),
-    bondsPercentage: new FormControl(),
-    stocks: new FormControl(),
-    stocksPercentage: new FormControl(),
-    stocksDuration: new FormControl(),
-    crypto: new FormControl(),
-    cryptoPercentage: new FormControl(),
-    gold: new FormControl(),
-    goldPercentage: new FormControl(),
-    other: new FormControl(),
-    otherPercentage: new FormControl(),
+    cash: new FormControl(0),
+    bank: new FormControl(0),
+    emergencyFund: new FormControl(0),
+    savings: new FormControl(0),
+    GIC: new FormControl(0),
+    bonds: new FormControl(0),
+    stocks: new FormControl(0),
+    stocksDuration: new FormControl("1"),
+    crypto: new FormControl(0),
+    gold: new FormControl(0),
+    other: new FormControl(0),
+    interests: new FormGroup({
+      cash: new FormControl(-1),
+      bank: new FormControl(0),
+      emergencyFund: new FormControl(0),
+      savings: new FormControl(2),
+      GIC: new FormControl(0),
+      bonds: new FormControl(0),
+      stocks: new FormControl(7),
+      crypto: new FormControl(0),
+      gold: new FormControl(3),
+      other: new FormControl(0),
+    }),
   });
   physicalAssetsFormGroup: FormGroup = new FormGroup({
-    vehicle: new FormControl(),
-    vehiclePercentage: new FormControl(),
-    property: new FormControl(),
-    propertyPercentage: new FormControl(),
-    equipment: new FormControl(),
-    equipmentPercentage: new FormControl(),
-    electronics: new FormControl(),
-    electronicsPercentage: new FormControl(),
-    other: new FormControl(),
-    otherPercentage: new FormControl(),
+    vehicle: new FormControl(0),
+    property: new FormControl(0),
+    equipment: new FormControl(0),
+    electronics: new FormControl(0),
+    other: new FormControl(0),
+    interests: new FormGroup({
+      vehicle: new FormControl(-15),
+      property: new FormControl(5),
+      equipment: new FormControl(-15),
+      electronics: new FormControl(-15),
+      other: new FormControl(2),
+    }),
   });
   liabilitiesFormGroup: FormGroup = new FormGroup({
-    creditCard: new FormControl(),
-    creditCardPercentage: new FormControl(),
-    creditLine: new FormControl(),
-    creditLinePercentage: new FormControl(),
-    studentLoan1: new FormControl(),
-    studentLoan1Percentage: new FormControl(),
-    studentLoan2: new FormControl(),
-    studentLoan2Percentage: new FormControl(),
-    mortgage: new FormControl(),
-    mortgagePercentage: new FormControl(),
-    carLoan: new FormControl(),
-    carLoanPercentage: new FormControl(),
-    personalLoan: new FormControl(),
-    personalLoanPercentage: new FormControl(),
-    medicalDebt: new FormControl(),
-    medicalDebtPercentage: new FormControl(),
-    other1: new FormControl(),
-    other1Percentage: new FormControl(),
-    other2: new FormControl(),
-    other2Percentage: new FormControl(),
-    other3: new FormControl(),
-    other3Percentage: new FormControl(),
+    interests: new FormGroup({
+      creditCard: new FormControl(0),
+      creditLine: new FormControl(0),
+      studentLoan1: new FormControl(0),
+      studentLoan2: new FormControl(0),
+      mortgage: new FormControl(0),
+      carLoan: new FormControl(0),
+      personalLoan: new FormControl(0),
+      medicalDebt: new FormControl(0),
+      other1: new FormControl(0),
+      other2: new FormControl(0),
+      other3: new FormControl(0),
+    }),
+    monthlyPayment: new FormGroup({
+      creditCard: new FormControl(0),
+      creditLine: new FormControl(0),
+      studentLoan1: new FormControl(0),
+      studentLoan2: new FormControl(0),
+      mortgage: new FormControl(0),
+      carLoan: new FormControl(0),
+      personalLoan: new FormControl(0),
+      medicalDebt: new FormControl(0),
+      other1: new FormControl(0),
+      other2: new FormControl(0),
+      other3: new FormControl(0),
+    }),
+    creditCard: new FormControl(0),
+    creditLine: new FormControl(0),
+    studentLoan1: new FormControl(0),
+    studentLoan2: new FormControl(0),
+    mortgage: new FormControl(0),
+    carLoan: new FormControl(0),
+    personalLoan: new FormControl(0),
+    medicalDebt: new FormControl(0),
+    other1: new FormControl(0),
+    other2: new FormControl(0),
+    other3: new FormControl(0),
   });
 
   formGroupList: FormGroup[] = [this.incomeFormGroup, this.financialAssetsFormGroup, this.physicalAssetsFormGroup, this.liabilitiesFormGroup];
@@ -91,9 +115,21 @@ export class FscFormPage {
     { value: "4", viewValue: "10+ years" },
   ];
 
-  constructor(private financeStateDatasSRV: FinanceStateDataService) {}
+  constructor(private financeStateDatasSRV: FinanceStateDataService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getDataAndPatchForm();
+  }
+
+  /**
+   * Used to reset the form and delete the datas from the service.
+   */
+  resetData() {
+    this.formGroupList.forEach((form) => {
+      form.reset();
+    });
+    this.financeStateDatasSRV.deleteFinanceStateData();
+  }
 
   /**
    * Used to save the form control values in the finance state data service.
@@ -107,5 +143,27 @@ export class FscFormPage {
     };
 
     this.financeStateDatasSRV.updateFinanceStateData(responses);
+    this.router.navigate(["/results"]);
+  }
+
+  /**
+   * Used to get the data from the finance state data service and update the form values.
+   */
+  private getDataAndPatchForm() {
+    if (this.financeStateDatasSRV.financeStateData) {
+      const FSD = this.financeStateDatasSRV.financeStateData;
+      for (let data in FSD.income) {
+        this.incomeFormGroup.controls[data].setValue(FSD.income[data as keyof Incomes]);
+      }
+      for (let data in FSD.financialAssets) {
+        this.financialAssetsFormGroup.controls[data].setValue(FSD.financialAssets[data as keyof FinancialAssets]);
+      }
+      for (let data in FSD.physicalAssets) {
+        this.physicalAssetsFormGroup.controls[data].setValue(FSD.physicalAssets[data as keyof PhysicalAssets]);
+      }
+      for (let data in FSD.liabilities) {
+        this.liabilitiesFormGroup.controls[data].setValue(FSD.liabilities[data as keyof Liabilities]);
+      }
+    }
   }
 }
