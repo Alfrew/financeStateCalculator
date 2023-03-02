@@ -1,8 +1,12 @@
-import { Component } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
-import { InputSelectOption } from "src/app/shared/utils/input-select-utils";
+import { Component } from "@angular/core";
+import { Incomes } from "../../../models/incomes";
+import { FormControl, FormGroup } from "@angular/forms";
+import { Liabilities } from "../../../models/liabilities";
+import { PhysicalAssets } from "../../../models/physical-assets";
+import { FinancialAssets } from "../../../models/financial-assets";
 import { FinanceStateData } from "../../../models/finance-state-data";
+import { InputSelectOption } from "src/app/shared/utils/input-select-utils";
 import { FinanceStateDataService } from "../../../services/finance-state-data.service";
 
 @Component({
@@ -113,7 +117,19 @@ export class FscFormPage {
 
   constructor(private financeStateDatasSRV: FinanceStateDataService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getDataAndPatchForm();
+  }
+
+  /**
+   * Used to reset the form and delete the datas from the service.
+   */
+  resetData() {
+    this.formGroupList.forEach((form) => {
+      form.reset();
+    });
+    this.financeStateDatasSRV.deleteFinanceStateData();
+  }
 
   /**
    * Used to save the form control values in the finance state data service.
@@ -128,5 +144,26 @@ export class FscFormPage {
 
     this.financeStateDatasSRV.updateFinanceStateData(responses);
     this.router.navigate(["/results"]);
+  }
+
+  /**
+   * Used to get the data from the finance state data service and update the form values.
+   */
+  private getDataAndPatchForm() {
+    if (this.financeStateDatasSRV.financeStateData) {
+      const FSD = this.financeStateDatasSRV.financeStateData;
+      for (let data in FSD.income) {
+        this.incomeFormGroup.controls[data].setValue(FSD.income[data as keyof Incomes]);
+      }
+      for (let data in FSD.financialAssets) {
+        this.financialAssetsFormGroup.controls[data].setValue(FSD.financialAssets[data as keyof FinancialAssets]);
+      }
+      for (let data in FSD.physicalAssets) {
+        this.physicalAssetsFormGroup.controls[data].setValue(FSD.physicalAssets[data as keyof PhysicalAssets]);
+      }
+      for (let data in FSD.liabilities) {
+        this.liabilitiesFormGroup.controls[data].setValue(FSD.liabilities[data as keyof Liabilities]);
+      }
+    }
   }
 }
