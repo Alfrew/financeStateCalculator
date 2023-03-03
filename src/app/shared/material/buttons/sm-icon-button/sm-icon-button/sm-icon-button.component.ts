@@ -2,11 +2,11 @@ import { matColor } from "src/app/shared/utils/button-utils";
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: "sm-flat-button",
-  templateUrl: "./sm-flat-button.component.html",
-  styleUrls: ["./sm-flat-button.component.scss"],
+  selector: "sm-icon-button",
+  templateUrl: "./sm-icon-button.component.html",
+  styleUrls: ["./sm-icon-button.component.scss"],
 })
-export class SmFlatButtonComponent {
+export class SmIconButtonComponent {
   @Input() badgeColor: matColor = "warn";
   @Input() badgeValue?: number;
   @Input() color?: matColor;

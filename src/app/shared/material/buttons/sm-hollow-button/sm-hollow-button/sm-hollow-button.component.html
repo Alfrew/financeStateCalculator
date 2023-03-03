@@ -1,3 +1,3 @@
-<button mat-stroked-button [disabled]="isDisabled" [color]="color" (click)="buttonClickEmitter()">
+<button mat-stroked-button [disabled]="isDisabled" [color]="color" [matBadge]="badgeValue" [matBadgeColor]="badgeColor" [matTooltip]="tooltip | translate" (click)="buttonClickEmitter()">
   <mat-icon *ngIf="icon">{{ icon }}</mat-icon> {{ label | translate }}
 </button>
