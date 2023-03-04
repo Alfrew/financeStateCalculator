@@ -38,9 +38,9 @@ export class FinancialPositionInsightsComponent implements OnInit {
       insightLevel++;
     } while (age >= ageList[insightLevel - 1]);
     this.panelList.push({
-      title: "insights.position.age.title",
-      intro: "insights.position.age.intro" + insightLevel,
-      text: "insights.position.age.text" + insightLevel,
+      title: "fscInsights.position.age.title",
+      intro: "fscInsights.position.age.intro" + insightLevel,
+      text: "fscInsights.position.age.text" + insightLevel,
     });
   }
 
@@ -67,9 +67,9 @@ export class FinancialPositionInsightsComponent implements OnInit {
       insightLevel++;
     } while (liquidityToDebt >= liquidityList[insightLevel - 1]);
     this.panelList.push({
-      title: "insights.position.liquidity.title",
-      intro: "insights.position.liquidity.intro" + insightLevel,
-      text: "insights.position.liquidity.text" + insightLevel,
+      title: "fscInsights.position.liquidity.title",
+      intro: "fscInsights.position.liquidity.intro" + insightLevel,
+      text: "fscInsights.position.liquidity.text" + insightLevel,
     });
   }
 
@@ -92,9 +92,9 @@ export class FinancialPositionInsightsComponent implements OnInit {
       insightLevel++;
     } while (liquidityToDebt <= costList[insightLevel - 1]);
     this.panelList.push({
-      title: "insights.position.housingCost.title",
-      intro: "insights.position.housingCost.intro" + insightLevel,
-      text: "insights.position.housingCost.text" + insightLevel,
+      title: "fscInsights.position.housingCost.title",
+      intro: "fscInsights.position.housingCost.intro" + insightLevel,
+      text: "fscInsights.position.housingCost.text" + insightLevel,
     });
   }
 
@@ -108,9 +108,9 @@ export class FinancialPositionInsightsComponent implements OnInit {
       insightLevel = 2;
     }
     this.panelList.push({
-      title: "insights.position.housingSituation.title",
-      intro: "insights.position.housingSituation.intro" + insightLevel,
-      text: "insights.position.housingSituation.text" + insightLevel,
+      title: "fscInsights.position.housingSituation.title",
+      intro: "fscInsights.position.housingSituation.intro" + insightLevel,
+      text: "fscInsights.position.housingSituation.text" + insightLevel,
     });
   }
 }

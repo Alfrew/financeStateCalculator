@@ -1,15 +1,15 @@
 <mat-stepper labelPosition="bottom" #stepper>
   <mat-step *ngFor="let form of formGroupList; let i = index" [stepControl]="form" [label]="labelList[i] | translate">
-    <div style="height: calc(100vh - 132px); display: flex; flex-direction: column;">
-      <div style="flex: 1; max-height: calc(100vh - 132px - 36px); padding-top: 8px; overflow: auto;">
+    <div style="height: calc(100vh - 132px - 64px); display: flex; flex-direction: column;">
+      <div style="flex: 1; max-height: calc(100vh - 132px - 36px - 64px); padding-top: 28px; overflow: auto;">
         <ng-container *ngIf="form" [ngTemplateOutlet]="contentTemplateRef" [ngTemplateOutletContext]="{$implicit:form}"></ng-container>
       </div>
       <div class="flex-between">
-        <button mat-flat-button color="warn" (click)="resetEmitter()">{{ "Reset" | translate }}</button>
+        <button mat-flat-button color="warn" (click)="resetEmitter()">{{ "common.reset" | translate }}</button>
         <div class="flex-end gap-1">
-          <button *ngIf="i>0" mat-flat-button color="primary" matStepperPrevious>{{ "Back" | translate }}</button>
-          <button *ngIf="i<lastFormGroupListIndex" mat-flat-button color="primary" matStepperNext>{{ "Next" | translate }}</button>
-          <button *ngIf="i===lastFormGroupListIndex" mat-flat-button color="primary" (click)="submitEmitter()">{{ "Submit" | translate }}</button>
+          <button *ngIf="i>0" mat-flat-button color="primary" matStepperPrevious>{{ "common.back" | translate }}</button>
+          <button *ngIf="i<lastFormGroupListIndex" mat-flat-button color="primary" matStepperNext>{{ "common.next" | translate }}</button>
+          <button *ngIf="i===lastFormGroupListIndex" mat-flat-button color="primary" (click)="submitEmitter()">{{ "common.submit" | translate }}</button>
         </div>
       </div>
     </div>

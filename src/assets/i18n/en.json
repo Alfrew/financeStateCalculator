@@ -1,6 +1,66 @@
 {
-  "insights": {
+  "fscForm": {
+    "common": {
+      "value": "Value",
+      "changeRate": "Rate of change",
+      "monthlyPayment": "Monthly payment"
+    },
+    "income": {
+      "title": "Annual income statement (After Tax)",
+      "age": "Age",
+      "employment": "Income from Employment",
+      "investment": "Income from Investments",
+      "other": "Other Incomes",
+      "expenses": "Expenses",
+      "homeOwner": "Home Owner?",
+      "rent": "Rent"
+    },
+    "financialAssets": {
+      "title": "Financial assets",
+      "cash": "Cash (physical)",
+      "bank": "Chequing account",
+      "emergencyFund": "Emergency fund",
+      "savings": "Savings account",
+      "GIC": "GIC's",
+      "bonds": "Bonds",
+      "stocks": "Stocks",
+      "stocksDuration": {
+        "title": "Duration of investment",
+        "label1": "Less than a year",
+        "label2": "1-5 years",
+        "label3": "6-10 years",
+        "label4": "10+ years"
+      },
+      "crypto": "Crypto",
+      "gold": "Gold",
+      "other": "Other investments"
+    },
+    "physicalAssets": {
+      "title": "Physical assets",
+      "vehicle": "Vehicle",
+      "property": "Property (exl. mortgage)",
+      "equipment": "Equipment",
+      "electronics": "Electronics",
+      "other": "Other valuables"
+    },
+    "liabilities": {
+      "title": "Liabilities",
+      "creditCard": "Credit card",
+      "creditLine": "Line of credit",
+      "studentLoan1": "Student loan 1",
+      "studentLoan2": "Student loan 2",
+      "mortgage": "Mortgage",
+      "carLoan": "Car loan",
+      "personalLoan": "Personal loan",
+      "medicalDebt": "Medical debt",
+      "other1": "Other 1",
+      "other2": "Other 2",
+      "other3": "Other 3"
+    }
+  },
+  "fscInsights": {
     "priorities": {
+      "title": "Priorities",
       "l1": {
         "title": "First step",
         "intro1": "Your INCOME is problematically LOWER than your expenses.",
@@ -56,6 +116,7 @@
       }
     },
     "position": {
+      "title": "FInancial Position",
       "age": {
         "title": "Age",
         "intro1": "You are VERY YOUNG",
@@ -114,6 +175,7 @@
       }
     },
     "debt": {
+      "title": "Debts",
       "savings": {
         "title": "Savings vs. Credit card debt",
         "intro1": "It would take you an UNCERTAIN number of MONTHS to PAY OFF your credit card debt",
@@ -168,6 +230,7 @@
       }
     },
     "investments": {
+      "title": "Investments",
       "emergencyFund": {
         "title": "Stocks vs. Emergency fund",
         "intro1": "You do NOT HAVE investments in STOCKS",
@@ -217,6 +280,62 @@
         "intro5": "Crypto represent a LOW PERCENTAGE of your TOTAL ASSETS",
         "text5": "If we want to follow the best practices based off all the information we know about investing, this is the most responsible amount of money to use for this purpose. As your investment journey continues, keep checking in with yourself to make sure you are comfortable with the amount of money you are putting at risk in this asset class."
       }
+    }
+  },
+  "common": {
+    "add": "Add",
+    "addAll": "Add All",
+    "back": "Back",
+    "close": "Close",
+    "columns": "Columns",
+    "currency": "$",
+    "description": "Description",
+    "detailedDescription": "Detailed Description",
+    "details": "Details",
+    "disabled": "Disabled",
+    "download": "Download",
+    "endDate": "End Date",
+    "endTime": "End Time",
+    "export": "Export",
+    "fileName": "File Name",
+    "fileSize": "File Size",
+    "filters": "Filters",
+    "legends": "Legends",
+    "menu": "Menu",
+    "next": "Next",
+    "no": "No",
+    "note": "Note",
+    "refresh": "Refresh",
+    "reset": "Reset",
+    "save": "Save",
+    "selectAll": "Select All",
+    "source": "Source",
+    "startDate": "Start Date",
+    "startTime": "Start Time",
+    "status": "Status",
+    "submit": "Reset",
+    "successSave": "Saved successfully",
+    "texts": "Texts",
+    "upload": "Upload",
+    "uploadDate": "Upload Date",
+    "uploadFile": "Upload File",
+    "username": "Username",
+    "version": "Version",
+    "yes": "Yes",
+    "select": {
+      "all": "Select All",
+      "clear": "Clear"
+    },
+    "error": {
+      "forbidden": "Access to this resource is forbidden",
+      "generic": "An Error Occurred",
+      "locationMissing": "Location missing",
+      "required": "This field is required"
+    },
+    "language": {
+      "changeLanguage": "Change language",
+      "english": "English",
+      "italian": "Italian"
     }
   }
 }

@@ -15,9 +15,8 @@ import { NG_VALUE_ACCESSOR, ControlContainer, FormControl, ControlValueAccessor 
 })
 export class SmInputTextComponent implements OnInit, ControlValueAccessor {
   @Input() formControlName?: string;
-
   @Input() label: string = "";
-  @Input() placeholder: string = "common.input.placeholder";
+  @Input() placeholder: string = "";
 
   formControl?: FormControl;
 

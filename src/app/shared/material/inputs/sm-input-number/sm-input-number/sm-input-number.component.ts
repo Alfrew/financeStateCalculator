@@ -15,18 +15,13 @@ import { NG_VALUE_ACCESSOR, ControlContainer, FormControl, ControlValueAccessor 
 })
 export class SmInputNumberComponent implements OnInit, ControlValueAccessor {
   @Input() formControlName?: string;
-
-  @Input() label: string = "";
-  @Input() placeholder: string = "common.input.placeholder";
-  @Input() minValue: string = "";
-  @Input() maxValue: string = "";
-  @Input() isPercentage: boolean = false;
   @Input() isCurrency: boolean = false;
+  @Input() isPercentage: boolean = false;
+  @Input() label: string = "";
+  @Input() maxValue: string = "";
+  @Input() minValue: string = "";
+  @Input() placeholder: string = "";
 
-  /**
-   * @TODO create a currency service (or directive) to manage locale currencies
-   */
-  currency = "$";
   formControl?: FormControl;
 
   constructor(

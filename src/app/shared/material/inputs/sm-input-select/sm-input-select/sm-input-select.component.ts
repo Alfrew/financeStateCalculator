@@ -16,14 +16,13 @@ import { NG_VALUE_ACCESSOR, ControlContainer, FormControl, ControlValueAccessor 
 })
 export class SmInputSelectComponent implements OnInit, ControlValueAccessor {
   @Input() formControlName?: string;
-  @Input() optionList: InputSelectOption[] = [];
   @Input() groupedOptionList?: InputSelectOptionsGroup[];
-
-  @Input() label: string = "";
-  @Input() placeholder: string = "common.select.placeholder";
-  @Input() multipleLimit?: number;
-  @Input() isMultiple: boolean = false;
   @Input() hasClearOption: boolean = false;
+  @Input() isMultiple: boolean = false;
+  @Input() label: string = "";
+  @Input() multipleLimit?: number;
+  @Input() optionList: InputSelectOption[] = [];
+  @Input() placeholder: string = "";
 
   formControl?: FormControl;
 

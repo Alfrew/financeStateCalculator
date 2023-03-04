@@ -49,9 +49,9 @@ export class InvestmentInsightsComponent implements OnInit {
         insightLevel = 3;
     }
     this.panelList.push({
-      title: "insights.investments.emergencyFund.title",
-      intro: "insights.investments.emergencyFund.intro" + insightLevel,
-      text: "insights.investments.emergencyFund.text" + insightLevel,
+      title: "fscInsights.investments.emergencyFund.title",
+      intro: "fscInsights.investments.emergencyFund.intro" + insightLevel,
+      text: "fscInsights.investments.emergencyFund.text" + insightLevel,
     });
   }
 
@@ -79,9 +79,9 @@ export class InvestmentInsightsComponent implements OnInit {
         insightLevel = 3;
     }
     this.panelList.push({
-      title: "insights.investments.stocksDebt.title",
-      intro: "insights.investments.stocksDebt.intro" + insightLevel,
-      text: "insights.investments.stocksDebt.text" + insightLevel,
+      title: "fscInsights.investments.stocksDebt.title",
+      intro: "fscInsights.investments.stocksDebt.intro" + insightLevel,
+      text: "fscInsights.investments.stocksDebt.text" + insightLevel,
     });
   }
 
@@ -105,9 +105,9 @@ export class InvestmentInsightsComponent implements OnInit {
         insightLevel = 4;
     }
     this.panelList.push({
-      title: "insights.investments.stocksDuration.title",
-      intro: "insights.investments.stocksDuration.intro" + insightLevel,
-      text: "insights.investments.stocksDuration.text" + insightLevel,
+      title: "fscInsights.investments.stocksDuration.title",
+      intro: "fscInsights.investments.stocksDuration.intro" + insightLevel,
+      text: "fscInsights.investments.stocksDuration.text" + insightLevel,
     });
   }
 
@@ -121,9 +121,9 @@ export class InvestmentInsightsComponent implements OnInit {
       insightLevel = 2;
     }
     this.panelList.push({
-      title: "insights.investments.crypto.title",
-      intro: "insights.investments.crypto.intro" + insightLevel,
-      text: "insights.investments.crypto.text" + insightLevel,
+      title: "fscInsights.investments.crypto.title",
+      intro: "fscInsights.investments.crypto.intro" + insightLevel,
+      text: "fscInsights.investments.crypto.text" + insightLevel,
     });
   }
 
@@ -151,9 +151,9 @@ export class InvestmentInsightsComponent implements OnInit {
       insightLevel++;
     } while (cryptoToTotalAssets <= cryptoList[insightLevel - 1]);
     this.panelList.push({
-      title: "insights.investments.cryptoPercentage.title",
-      intro: "insights.investments.cryptoPercentage.intro" + insightLevel,
-      text: "insights.investments.cryptoPercentage.text" + insightLevel,
+      title: "fscInsights.investments.cryptoPercentage.title",
+      intro: "fscInsights.investments.cryptoPercentage.intro" + insightLevel,
+      text: "fscInsights.investments.cryptoPercentage.text" + insightLevel,
     });
   }
 }
