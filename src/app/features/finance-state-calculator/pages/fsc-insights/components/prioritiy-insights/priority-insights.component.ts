@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Panel } from "src/app/shared/utils/panel-utils";
-import { LiabilitiesBase } from "src/app/features/finance-state-calculator/models/liabilities";
+import { LiabilitiesData } from "src/app/features/finance-state-calculator/models/liabilities";
 import { FinanceStateData } from "src/app/features/finance-state-calculator/models/finance-state-data";
 
 @Component({
@@ -32,13 +32,13 @@ export class PriorityInsightsComponent implements OnInit {
    * Used to check the level 1 of the priorities insights and update the first panel.
    */
   private checkLevel1() {
-    let percentageList: number[] = [-100, -40, -20, 0, 10, 20, 40, 60, 80];
-    let totalIncome: number = this.financeStateData.income.employment + this.financeStateData.income.investment + this.financeStateData.income.other;
-    let netIncomePercentage: number = ((totalIncome - this.financeStateData.income.expenses) / totalIncome) * 100;
+    let netIncomePercentageList: number[] = [-100, -40, -20, 0, 10, 20, 40, 60, 80];
+    let totalIncome: number = this.financeStateData.incomes.employment + this.financeStateData.incomes.investment + this.financeStateData.incomes.other;
+    let netIncomePercentage: number = ((totalIncome - this.financeStateData.incomes.expenses) / totalIncome) * 100;
     let insightLevel: number = 0;
     do {
       insightLevel++;
-    } while (netIncomePercentage >= percentageList[insightLevel - 1]);
+    } while (netIncomePercentage >= netIncomePercentageList[insightLevel - 1]);
     this.panelList.push({
       title: "fscInsights.priorities.l1.title",
       intro: "fscInsights.priorities.l1.intro" + insightLevel,
@@ -50,10 +50,10 @@ export class PriorityInsightsComponent implements OnInit {
    * Used to check the level 2 of the priorities insights and update the second panel.
    */
   private checkLevel2() {
-    let debtInterests: LiabilitiesBase = this.financeStateData.liabilities.interests;
+    let debtInterests: LiabilitiesData = this.financeStateData.liabilities;
     let insightLevel: number = 2;
     for (let debt in debtInterests) {
-      if (debtInterests[debt as keyof LiabilitiesBase] > 7) {
+      if (debtInterests[debt as keyof LiabilitiesData].changeRate > 7) {
         insightLevel = 1;
       }
     }
@@ -68,8 +68,8 @@ export class PriorityInsightsComponent implements OnInit {
    * Used to check the level 3 of the priorities insights and update the third panel.
    */
   private checkLevel3() {
-    let emergencyFund: number = this.financeStateData.financialAssets.emergencyFund;
-    let monthlyExpenses: number = this.financeStateData.income.expenses / 12;
+    let emergencyFund: number = this.financeStateData.financialAssets.emergencyFund.assetValue;
+    let monthlyExpenses: number = this.financeStateData.incomes.expenses / 12;
     let insightLevel: number = 1;
     if (emergencyFund > 0) {
       insightLevel = 2;
@@ -89,11 +89,11 @@ export class PriorityInsightsComponent implements OnInit {
    */
   private checkLevel4() {
     let investments: number =
-      this.financeStateData.physicalAssets.property +
-      this.financeStateData.financialAssets.bonds +
-      this.financeStateData.financialAssets.stocks +
-      this.financeStateData.financialAssets.crypto +
-      this.financeStateData.financialAssets.gold;
+      this.financeStateData.physicalAssets.property.assetValue +
+      this.financeStateData.financialAssets.bonds.assetValue +
+      this.financeStateData.financialAssets.stocks.assetValue +
+      this.financeStateData.financialAssets.crypto.assetValue +
+      this.financeStateData.financialAssets.gold.assetValue;
     let insightLevel: number = 1;
     if (investments > 0) {
       insightLevel = 2;
@@ -107,14 +107,15 @@ export class PriorityInsightsComponent implements OnInit {
 
   /**
    * Used to check the level 5 of the priorities insights and update the last panel.
+   * TODO check the for loop
    */
   private checkLevel5() {
-    let debtInterests: LiabilitiesBase = this.financeStateData.liabilities.interests;
+    let debtInterests: LiabilitiesData = this.financeStateData.liabilities;
     let totalDebt: number = 0;
     let insightLevel: number = 1;
     for (let debt in debtInterests) {
-      if (debtInterests[debt as keyof LiabilitiesBase] > 0 && debtInterests[debt as keyof LiabilitiesBase] < 7) {
-        totalDebt += this.financeStateData.liabilities[debt as keyof LiabilitiesBase];
+      if (debtInterests[debt as keyof LiabilitiesData].changeRate > 0 && debtInterests[debt as keyof LiabilitiesData].changeRate < 7) {
+        totalDebt += debtInterests[debt as keyof LiabilitiesData].assetValue;
       }
     }
     if (totalDebt === 0) {

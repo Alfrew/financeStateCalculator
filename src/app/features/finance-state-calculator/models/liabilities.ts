@@ -1,18 +1,19 @@
-export interface LiabilitiesBase {
-  creditCard: number;
-  creditLine: number;
-  studentLoan1: number;
-  studentLoan2: number;
-  mortgage: number;
-  carLoan: number;
-  personalLoan: number;
-  medicalDebt: number;
-  other1: number;
-  other2: number;
-  other3: number;
+import { AssetFSC } from "./asset-fsc";
+
+export interface LiabilityFSC extends AssetFSC {
+  monthlyPayment: number;
 }
 
-export interface Liabilities extends LiabilitiesBase {
-  interests: LiabilitiesBase;
-  monthlyPayment: LiabilitiesBase;
+export interface LiabilitiesData {
+  carLoan: LiabilityFSC;
+  creditCard: LiabilityFSC;
+  creditLine: LiabilityFSC;
+  medicalDebt: LiabilityFSC;
+  mortgage: LiabilityFSC;
+  other1: LiabilityFSC;
+  other2: LiabilityFSC;
+  other3: LiabilityFSC;
+  personalLoan: LiabilityFSC;
+  studentLoan1: LiabilityFSC;
+  studentLoan2: LiabilityFSC;
 }
