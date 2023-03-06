@@ -11,6 +11,8 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 // other imports
 import { TestModule } from "./test/test.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SmMenuModule } from "./shared/material/components/sm-menu/sm-menu.module";
+import { SmNavbarModule } from "./shared/material/components/sm-navbar/sm-navbar.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +29,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
         deps: [HttpClient],
       },
     }),
+    SmNavbarModule,
+    SmMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
