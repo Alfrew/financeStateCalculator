@@ -1,0 +1,47 @@
+@import "/src/assets/styles/variables.scss";
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gap-1 {
+  gap: 8px;
+}
+
+.custom-stepper::ng-deep {
+  .mat-horizontal-stepper-wrapper {
+    .mat-horizontal-stepper-header-container {
+      background-color: #f1f8e9;
+    }
+    .mat-horizontal-content-container {
+      padding: 0;
+      height: calc(100vh - 107px - $header-height - $footer-height);
+
+      .mat-horizontal-stepper-content:not(.mat-horizontal-stepper-content-inactive) {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .form-container {
+          flex-grow: 1;
+          overflow-x: auto;
+        }
+
+        .step-controls-container {
+          border-top: 1px solid lightgray;
+          padding: 16px;
+        }
+      }
+    }
+  }
+}
+
+.custom-stepper.mat-stepper-vertical::ng-deep {
+  max-height: calc(100vh - $header-height - $footer-height);
+}

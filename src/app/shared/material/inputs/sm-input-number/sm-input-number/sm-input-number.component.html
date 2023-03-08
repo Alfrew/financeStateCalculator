@@ -1,0 +1,13 @@
+<ng-container *ngIf="formControl; else noControl">
+  <mat-form-field appearance="outline">
+    <mat-label *ngIf="label">{{ label | translate}}</mat-label>
+    <input matInput [formControl]="formControl" type="number" [min]="minValue" [max]="maxValue" [placeholder]="placeholder | translate">
+    <span matTextSuffix *ngIf="isPercentage">%</span>
+    <span matTextSuffix *ngIf="isCurrency">{{ "common.currency" | translate }}</span>
+  </mat-form-field>
+  <mat-error *ngIf="formControl.hasError('required')">{{ 'common.error.required' | translate }}</mat-error>
+</ng-container>
+
+<ng-template #noControl>
+  <!-- TODO create a no formControl version -->
+</ng-template>

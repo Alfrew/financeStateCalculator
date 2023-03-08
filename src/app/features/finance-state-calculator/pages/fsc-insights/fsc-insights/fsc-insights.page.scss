@@ -1,0 +1,16 @@
+@import "/src/assets/styles/variables.scss";
+
+.page-wrapper {
+  max-height: calc(100vh - $header-height - $footer-height);
+  padding: 0 16px;
+}
+
+@media screen and (min-width: 992px) {
+  .page-wrapper {
+    padding: 0 20vw;
+  }
+}
+
+.pb-4 {
+  padding-bottom: 32px;
+}

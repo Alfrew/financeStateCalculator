@@ -1,0 +1,201 @@
+<sm-stepper [formGroupList]="formGroupList" [labelList]="stepLabels" (submit)="saveData()" (reset)="resetData()">
+  <ng-template let-form #content>
+    <form class="form" *ngIf="form === incomesFormGroup" [formGroup]="incomesFormGroup">
+      <h4>{{ "fscForm.income.age" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start"><sm-input-number class="flex-1" formControlName="age" label="fscForm.income.age"></sm-input-number></div>
+      <h4>{{ "fscForm.income.employment" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start"><sm-input-number class="flex-1" formControlName="employment" [isCurrency]="true" label="fscForm.income.employment"></sm-input-number></div>
+      <h4>{{ "fscForm.income.investment" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start"><sm-input-number class="flex-1" formControlName="investment" [isCurrency]="true" label="fscForm.income.investment"></sm-input-number></div>
+      <h4>{{ "fscForm.income.other" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start"><sm-input-number class="flex-1" formControlName="other" [isCurrency]="true" label="fscForm.income.other"></sm-input-number></div>
+      <h4>{{ "fscForm.income.expenses" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start"><sm-input-number class="flex-1" formControlName="expenses" [isCurrency]="true" label="fscForm.income.expenses"></sm-input-number></div>
+      <h4>{{ "fscForm.income.homeOwner" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start"><sm-input-select class="flex-1" formControlName="homeOwner" [optionList]="homeOwnerList" label="fscForm.income.homeOwner"></sm-input-select></div>
+      <ng-container *ngIf="incomesFormGroup.controls['homeOwner'].value === 'true'">
+        <h4>{{ "fscForm.income.rent" | translate }}</h4>
+        <div class="align-center-md flex-row-md flex-column align-flex-start"><sm-input-number class="flex-1" formControlName="rent" [isCurrency]="true" label="fscForm.income.rent"></sm-input-number></div>
+      </ng-container>
+    </form>
+
+
+    <form class="form" *ngIf="form === financialAssetsFormGroup" [formGroup]="financialAssetsFormGroup">
+
+      <h4>{{ 'fscForm.financialAssets.cash' | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="cash">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ 'fscForm.financialAssets.bank' | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="bank">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ 'fscForm.financialAssets.emergencyFund' | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="emergencyFund">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ 'fscForm.financialAssets.savings' | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="savings">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ 'fscForm.financialAssets.GIC' | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="GIC">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ 'fscForm.financialAssets.bonds' | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="bonds">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ 'fscForm.financialAssets.stocks' | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="stocks">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-select class="flex-1" formControlName="duration" [optionList]="stocksDurationList" label="fscForm.financialAssets.stocksDuration.title"></sm-input-select>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ 'fscForm.financialAssets.crypto' | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="crypto">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ 'fscForm.financialAssets.gold' | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="gold">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ 'fscForm.financialAssets.other' | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="other">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+    </form>
+
+
+    <form class="form" *ngIf="form === physicalAssetsFormGroup" [formGroup]="physicalAssetsFormGroup">
+
+      <h4>{{ "fscForm.physicalAssets.vehicle" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="vehicle">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.physicalAssets.property" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="property">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.physicalAssets.equipment" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="equipment">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.physicalAssets.electronics" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="electronics">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.physicalAssets.other" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="other">
+        <sm-input-number class="flex-2" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+    </form>
+
+
+    <form class="form" *ngIf="form === liabilitiesFormGroup" [formGroup]="liabilitiesFormGroup">
+      <h4>{{ "fscForm.liabilities.creditCard" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="creditCard">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="monthlyPayment" [isCurrency]="true" label="fscForm.common.monthlyPayment"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.liabilities.creditLine" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="creditLine">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="monthlyPayment" [isCurrency]="true" label="fscForm.common.monthlyPayment"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.liabilities.studentLoan1" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="studentLoan1">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="monthlyPayment" [isCurrency]="true" label="fscForm.common.monthlyPayment"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.liabilities.studentLoan2" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="studentLoan2">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="monthlyPayment" [isCurrency]="true" label="fscForm.common.monthlyPayment"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.liabilities.mortgage" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="mortgage">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="monthlyPayment" [isCurrency]="true" label="fscForm.common.monthlyPayment"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.liabilities.carLoan" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="carLoan">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="monthlyPayment" [isCurrency]="true" label="fscForm.common.monthlyPayment"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.liabilities.personalLoan" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="personalLoan">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="monthlyPayment" [isCurrency]="true" label="fscForm.common.monthlyPayment"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.liabilities.medicalDebt" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="medicalDebt">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="monthlyPayment" [isCurrency]="true" label="fscForm.common.monthlyPayment"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.liabilities.other1" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="other1">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="monthlyPayment" [isCurrency]="true" label="fscForm.common.monthlyPayment"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.liabilities.other2" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="other2">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="monthlyPayment" [isCurrency]="true" label="fscForm.common.monthlyPayment"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+
+      <h4>{{ "fscForm.liabilities.other3" | translate }}</h4>
+      <div class="align-center-md flex-row-md flex-column align-flex-start gap-2" formGroupName="other3">
+        <sm-input-number class="flex-1" formControlName="assetValue" [isCurrency]="true" label="fscForm.common.value"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="monthlyPayment" [isCurrency]="true" label="fscForm.common.monthlyPayment"></sm-input-number>
+        <sm-input-number class="flex-1" formControlName="changeRate" [isPercentage]="true" label="fscForm.common.changeRate"></sm-input-number>
+      </div>
+    </form>
+  </ng-template>
+</sm-stepper>

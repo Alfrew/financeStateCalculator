@@ -1,0 +1,11 @@
+<ng-container [ngSwitch]="buttonType">
+  <sm-flat-button *ngSwitchCase="'flat'" [badgeValue]="buttonBadge" [badgeColor]="buttonBadgeColor" [tooltip]="buttonTooltip" [icon]="buttonIcon" [label]="buttonLabel" [matMenuTriggerFor]="menu"></sm-flat-button>
+  <sm-hollow-button *ngSwitchCase="'hollow'" [badgeValue]="buttonBadge" [badgeColor]="buttonBadgeColor" [tooltip]="buttonTooltip" [icon]="buttonIcon" [label]="buttonLabel" [matMenuTriggerFor]="menu"></sm-hollow-button>
+  <sm-text-button *ngSwitchCase="'text'" [badgeValue]="buttonBadge" [badgeColor]="buttonBadgeColor" [tooltip]="buttonTooltip" [icon]="buttonIcon" [label]="buttonLabel" [matMenuTriggerFor]="menu"></sm-text-button>
+  <sm-icon-button *ngSwitchDefault [badgeValue]="buttonBadge" [badgeColor]="buttonBadgeColor" [tooltip]="buttonTooltip" [icon]="buttonIcon" [matMenuTriggerFor]="menu"></sm-icon-button>
+</ng-container>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let menuItem of menuItemList" (click)="itemActionEmitter(menuItem.value)">
+    <mat-icon *ngIf="menuItem.icon">{{ menuItem.icon }}</mat-icon><span>{{ menuItem.label | translate }}</span>
+  </button>
+</mat-menu>

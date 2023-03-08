@@ -1,0 +1,18 @@
+<span id="top"></span>
+<mat-stepper class="custom-stepper" labelPosition="bottom" #stepper (animationDone)="scrollToTop()" [orientation]="(stepperOrientation | async)!">
+  <mat-step *ngFor="let form of formGroupList; let i = index" [stepControl]="form" [label]="labelList[i] | translate">
+    <div class="form-container" [id]="'anchor'+i">
+      <ng-container *ngIf="form" [ngTemplateOutlet]="contentTemplateRef" [ngTemplateOutletContext]="{$implicit:form}"></ng-container>
+    </div>
+
+
+    <div class="step-controls-container flex-between">
+      <button mat-flat-button color="warn" (click)="resetEmitter()">{{ "common.reset" | translate }}</button>
+      <div class="flex-end gap-1">
+        <button *ngIf="i>0" mat-stroked-button matStepperPrevious>{{ "common.back" | translate }}</button>
+        <button *ngIf="i<lastFormGroupListIndex" mat-stroked-button matStepperNext>{{ "common.next" | translate }}</button>
+        <button *ngIf="i===lastFormGroupListIndex" mat-flat-button color="primary" (click)="submitEmitter()">{{ "common.submit" | translate }}</button>
+      </div>
+    </div>
+  </mat-step>
+</mat-stepper>
