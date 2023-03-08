@@ -7,10 +7,13 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./sm-hollow-button.component.scss"],
 })
 export class SmHollowButtonComponent {
-  @Input() label: string = "";
+  @Input() badgeColor: matColor = "warn";
+  @Input() badgeValue?: number;
+  @Input() color?: matColor;
   @Input() icon?: string;
   @Input() isDisabled: boolean = false;
-  @Input() color: matColor = "";
+  @Input() label: string = "";
+  @Input() tooltip: string = "";
   @Output() buttonClick: EventEmitter<void> = new EventEmitter<void>();
 
   /**

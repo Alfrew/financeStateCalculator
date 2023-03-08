@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<div class="body-wrap">
+  <sm-navbar navBrand="Net Worth Table" color="primary">
+    <!-- To be released -->
+    <!-- <sm-menu buttonIcon="language" buttonTooltip="common.language.changeLanguage" [menuItemList]="languageMenuList" (itemAction)="changeLanguage($event)"></sm-menu> -->
+  </sm-navbar>
+  <div class="content-wrap">
+    <router-outlet></router-outlet>
+  </div>
+  <footer>
+    <p>Made with <mat-icon>favorite</mat-icon> by <a href="https://alfrew.github.io/mySpace/">Alfredo Filigheddu</a></p>
+    <p>By an idea of <a href="https://steve-antonioni.web.app/contact/">Steve Antonioni</a></p>
+  </footer>
+</div>

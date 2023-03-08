@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Panel } from "src/app/shared/utils/panel-utils";
-import { LiabilitiesBase } from "src/app/features/finance-state-calculator/models/liabilities";
+import { LiabilitiesData } from "src/app/features/finance-state-calculator/models/liabilities";
 import { FinanceStateData } from "src/app/features/finance-state-calculator/models/finance-state-data";
 
 @Component({
@@ -32,15 +32,15 @@ export class FinancialPositionInsightsComponent implements OnInit {
    */
   private checkAge() {
     let ageList: number[] = [18, 25, 35, 45, 55, 65];
-    let age: number = this.financeStateData.income.age;
+    let age: number = this.financeStateData.incomes.age;
     let insightLevel: number = 0;
     do {
       insightLevel++;
     } while (age >= ageList[insightLevel - 1]);
     this.panelList.push({
-      title: "insights.position.age.title",
-      intro: "insights.position.age.intro" + insightLevel,
-      text: "insights.position.age.text" + insightLevel,
+      title: "fscInsights.position.age.title",
+      intro: "fscInsights.position.age.intro" + insightLevel,
+      text: "fscInsights.position.age.text" + insightLevel,
     });
   }
 
@@ -48,28 +48,28 @@ export class FinancialPositionInsightsComponent implements OnInit {
    * Used to check the liquidity to debt for the financial position insights and update the second panel.
    */
   private checkLiquidityToDebt() {
-    let liquidityList: number[] = [10, 25, 50, 75, 90, 100, 101];
-    let debtInterests: LiabilitiesBase = this.financeStateData.liabilities.interests;
+    let liquidityToDebtList: number[] = [10, 25, 50, 75, 90, 100, 101];
+    let debts: LiabilitiesData = this.financeStateData.liabilities;
     let totalLiquidity: number =
-      this.financeStateData.financialAssets.cash +
-      this.financeStateData.financialAssets.bank +
-      this.financeStateData.financialAssets.emergencyFund +
-      this.financeStateData.financialAssets.savings;
+      this.financeStateData.financialAssets.cash.assetValue +
+      this.financeStateData.financialAssets.bank.assetValue +
+      this.financeStateData.financialAssets.emergencyFund.assetValue +
+      this.financeStateData.financialAssets.savings.assetValue;
     let totalDebt: number = 0;
-    for (let debt in debtInterests) {
+    for (let debt in debts) {
       if (debt !== "mortgage") {
-        totalDebt += this.financeStateData.liabilities[debt as keyof LiabilitiesBase];
+        totalDebt += debts[debt as keyof LiabilitiesData].assetValue;
       }
     }
     let liquidityToDebt: number = (totalLiquidity / totalDebt) * 100;
     let insightLevel: number = 0;
     do {
       insightLevel++;
-    } while (liquidityToDebt >= liquidityList[insightLevel - 1]);
+    } while (liquidityToDebt >= liquidityToDebtList[insightLevel - 1]);
     this.panelList.push({
-      title: "insights.position.liquidity.title",
-      intro: "insights.position.liquidity.intro" + insightLevel,
-      text: "insights.position.liquidity.text" + insightLevel,
+      title: "fscInsights.position.liquidity.title",
+      intro: "fscInsights.position.liquidity.intro" + insightLevel,
+      text: "fscInsights.position.liquidity.text" + insightLevel,
     });
   }
 
@@ -77,24 +77,24 @@ export class FinancialPositionInsightsComponent implements OnInit {
    * Used to check the housing costs for the financial position insights and update the third panel.
    */
   private checkHousingCosts() {
-    let costList: number[] = [30, 20, 10, 0];
-    let totalIncome: number = this.financeStateData.income.employment + this.financeStateData.income.investment + this.financeStateData.income.other;
+    let incomeToHousingCostList: number[] = [30, 20, 10, 0];
+    let totalIncome: number = this.financeStateData.incomes.employment + this.financeStateData.incomes.investment + this.financeStateData.incomes.other;
     let monthlyIncome: number = totalIncome / 12;
     let housingCost: number = 0;
-    if (this.financeStateData.liabilities.mortgage > 0) {
-      housingCost = this.financeStateData.liabilities.mortgage;
-    } else if (this.financeStateData.income.rent && this.financeStateData.income.rent > 0) {
-      housingCost = this.financeStateData.income.rent;
+    if (this.financeStateData.liabilities.mortgage.assetValue > 0) {
+      housingCost = this.financeStateData.liabilities.mortgage.assetValue;
+    } else if (this.financeStateData.incomes.rent && this.financeStateData.incomes.rent > 0) {
+      housingCost = this.financeStateData.incomes.rent;
     }
-    let liquidityToDebt: number = (housingCost / monthlyIncome) * 100;
+    let incomeToHousingCost: number = (housingCost / monthlyIncome) * 100;
     let insightLevel: number = 0;
     do {
       insightLevel++;
-    } while (liquidityToDebt <= costList[insightLevel - 1]);
+    } while (incomeToHousingCost <= incomeToHousingCostList[insightLevel - 1]);
     this.panelList.push({
-      title: "insights.position.housingCost.title",
-      intro: "insights.position.housingCost.intro" + insightLevel,
-      text: "insights.position.housingCost.text" + insightLevel,
+      title: "fscInsights.position.housingCost.title",
+      intro: "fscInsights.position.housingCost.intro" + insightLevel,
+      text: "fscInsights.position.housingCost.text" + insightLevel,
     });
   }
 
@@ -102,15 +102,15 @@ export class FinancialPositionInsightsComponent implements OnInit {
    * Used to check the housing situation for the financial position insights and update the last panel.
    */
   private checkHousingSituation() {
-    let isHomeOwner: string = this.financeStateData.income.homeOwner;
+    let isHomeOwner: string = this.financeStateData.incomes.homeOwner;
     let insightLevel: number = 1;
     if (isHomeOwner === "true") {
       insightLevel = 2;
     }
     this.panelList.push({
-      title: "insights.position.housingSituation.title",
-      intro: "insights.position.housingSituation.intro" + insightLevel,
-      text: "insights.position.housingSituation.text" + insightLevel,
+      title: "fscInsights.position.housingSituation.title",
+      intro: "fscInsights.position.housingSituation.intro" + insightLevel,
+      text: "fscInsights.position.housingSituation.text" + insightLevel,
     });
   }
 }

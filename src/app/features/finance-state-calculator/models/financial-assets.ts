@@ -1,17 +1,17 @@
-export interface FinancialAssetsBase {
-  cash: number;
-  bank: number;
-  emergencyFund: number;
-  savings: number;
-  GIC: number;
-  bonds: number;
-  stocks: number;
-  crypto: number;
-  gold: number;
-  other: number;
-}
+import { AssetFSC } from "./asset-fsc";
 
-export interface FinancialAssets extends FinancialAssetsBase {
-  stocksDuration: string;
-  interests: FinancialAssetsBase;
+export interface StocksFSC extends AssetFSC {
+  duration: string;
+}
+export interface FinancialAssetsData {
+  bank: AssetFSC;
+  bonds: AssetFSC;
+  cash: AssetFSC;
+  crypto: AssetFSC;
+  emergencyFund: AssetFSC;
+  GIC: AssetFSC;
+  gold: AssetFSC;
+  other: AssetFSC;
+  savings: AssetFSC;
+  stocks: StocksFSC;
 }

@@ -1,16 +1,17 @@
-<mat-stepper labelPosition="bottom" #stepper>
+<span id="top"></span>
+<mat-stepper class="custom-stepper" labelPosition="bottom" #stepper (animationDone)="scrollToTop()" [orientation]="(stepperOrientation | async)!">
   <mat-step *ngFor="let form of formGroupList; let i = index" [stepControl]="form" [label]="labelList[i] | translate">
-    <div style="height: calc(100vh - 132px); display: flex; flex-direction: column;">
-      <div style="flex: 1; max-height: calc(100vh - 132px - 36px); padding-top: 8px; overflow: auto;">
-        <ng-container *ngIf="form" [ngTemplateOutlet]="contentTemplateRef" [ngTemplateOutletContext]="{$implicit:form}"></ng-container>
-      </div>
-      <div class="flex-between">
-        <button mat-flat-button color="warn" (click)="resetEmitter()">{{ "Reset" | translate }}</button>
-        <div class="flex-end gap-1">
-          <button *ngIf="i>0" mat-flat-button color="primary" matStepperPrevious>{{ "Back" | translate }}</button>
-          <button *ngIf="i<lastFormGroupListIndex" mat-flat-button color="primary" matStepperNext>{{ "Next" | translate }}</button>
-          <button *ngIf="i===lastFormGroupListIndex" mat-flat-button color="primary" (click)="submitEmitter()">{{ "Submit" | translate }}</button>
-        </div>
+    <div class="form-container" [id]="'anchor'+i">
+      <ng-container *ngIf="form" [ngTemplateOutlet]="contentTemplateRef" [ngTemplateOutletContext]="{$implicit:form}"></ng-container>
+    </div>
+
+
+    <div class="step-controls-container flex-between">
+      <button mat-flat-button color="warn" (click)="resetEmitter()">{{ "common.reset" | translate }}</button>
+      <div class="flex-end gap-1">
+        <button *ngIf="i>0" mat-stroked-button matStepperPrevious>{{ "common.back" | translate }}</button>
+        <button *ngIf="i<lastFormGroupListIndex" mat-stroked-button matStepperNext>{{ "common.next" | translate }}</button>
+        <button *ngIf="i===lastFormGroupListIndex" mat-flat-button color="primary" (click)="submitEmitter()">{{ "common.submit" | translate }}</button>
       </div>
     </div>
   </mat-step>

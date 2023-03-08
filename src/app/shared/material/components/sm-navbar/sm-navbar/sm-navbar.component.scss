@@ -1,0 +1,14 @@
+@import "/src/assets/styles/variables.scss";
+
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.nav-brand {
+  font-weight: bold;
+  cursor: pointer;
+}

@@ -1,0 +1,14 @@
+@import "/src/assets/styles/variables.scss";
+
+.panel-description-md {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .panel-description-md {
+    display: block;
+  }
+  .panel-description-mobile {
+    display: none;
+  }
+}

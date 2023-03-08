@@ -3,6 +3,7 @@
     <mat-label *ngIf="label">{{ label | translate }}</mat-label>
     <input matInput [formControl]="formControl" type="text" [placeholder]="placeholder | translate">
   </mat-form-field>
+  <mat-error *ngIf="formControl.hasError('required')">{{ 'common.error.required' | translate }}</mat-error>
 </ng-container>
 
 <ng-template #noControl>
