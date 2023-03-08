@@ -2,6 +2,7 @@
 
 .page-wrapper {
   max-height: calc(100vh - $header-height - $footer-height);
+  max-height: calc(100svh - $header-height - $footer-height);
   padding: 0 16px;
 }
 

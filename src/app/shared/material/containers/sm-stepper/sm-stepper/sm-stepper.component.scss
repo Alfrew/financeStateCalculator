@@ -22,6 +22,7 @@
     .mat-horizontal-content-container {
       padding: 0;
       height: calc(100vh - 107px - $header-height - $footer-height);
+      height: calc(100svh - 107px - $header-height - $footer-height);
 
       .mat-horizontal-stepper-content:not(.mat-horizontal-stepper-content-inactive) {
         height: 100%;
@@ -44,4 +45,5 @@
 
 .custom-stepper.mat-stepper-vertical::ng-deep {
   max-height: calc(100vh - $header-height - $footer-height);
+  max-height: calc(100svh - $header-height - $footer-height);
 }
