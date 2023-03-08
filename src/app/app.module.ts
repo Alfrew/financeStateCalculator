@@ -13,6 +13,7 @@ import { TestModule } from "./test/test.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SmMenuModule } from "./shared/material/components/sm-menu/sm-menu.module";
 import { SmNavbarModule } from "./shared/material/components/sm-navbar/sm-navbar.module";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { SmNavbarModule } from "./shared/material/components/sm-navbar/sm-navbar
         deps: [HttpClient],
       },
     }),
+    MatIconModule,
     SmNavbarModule,
     SmMenuModule,
   ],
