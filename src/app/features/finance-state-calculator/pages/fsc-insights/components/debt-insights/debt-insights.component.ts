@@ -48,6 +48,8 @@ export class DebtInsightsComponent implements OnInit {
       case monthToPayDebt > 1:
         insightLevel = 2;
         break;
+      default:
+        insightLevel = 4;
     }
     this.panelList.push({
       title: "fscInsights.debt.savings.title",

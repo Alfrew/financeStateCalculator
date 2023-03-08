@@ -1,6 +1,8 @@
-<ng-container *ngIf="financeStateData">
-  <fsc-priority-insights [financeStateData]="financeStateData"></fsc-priority-insights>
-  <fsc-financial-position-insights [financeStateData]="financeStateData"></fsc-financial-position-insights>
-  <fsc-debt-insights [financeStateData]="financeStateData"></fsc-debt-insights>
-  <fsc-investment-insights [financeStateData]="financeStateData"></fsc-investment-insights>
-</ng-container>
+<div class="page-wrapper">
+  <ng-container *ngIf="financeStateData">
+    <div class="pb-4"><fsc-priority-insights [financeStateData]="financeStateData"></fsc-priority-insights></div>
+    <div class="pb-4"><fsc-financial-position-insights [financeStateData]="financeStateData"></fsc-financial-position-insights></div>
+    <div class="pb-4"><fsc-debt-insights [financeStateData]="financeStateData"></fsc-debt-insights></div>
+    <div class="pb-4"><fsc-investment-insights [financeStateData]="financeStateData"></fsc-investment-insights></div>
+  </ng-container>
+</div>

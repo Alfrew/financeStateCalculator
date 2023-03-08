@@ -1,8 +1,25 @@
 @import "/src/assets/styles/variables.scss";
 
-.align-items-center {
+h4 {
+  color: $primary-color;
+}
+
+.align-flex-start {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+}
+.flex-column {
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .align-center-md {
+    display: flex;
+    align-items: center;
+  }
+  .flex-row-md {
+    flex-direction: row;
+  }
 }
 
 .gap-1 {
@@ -21,6 +38,17 @@
 }
 
 .form {
-  max-width: 60vw;
+  max-width: 60%;
   margin: auto;
+
+  @media screen and (max-width: 1200px) {
+    max-width: 90%;
+
+    * {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
 }
