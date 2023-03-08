@@ -1,8 +1,7 @@
 @import "/src/assets/styles/variables.scss";
 
 .body-wrap {
-  height: 100vh;
-  height: 100svh;
+  height: 100%;
   display: flex;
   flex-flow: column;
 }

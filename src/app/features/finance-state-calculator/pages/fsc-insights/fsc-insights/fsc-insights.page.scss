@@ -1,8 +1,7 @@
 @import "/src/assets/styles/variables.scss";
 
 .page-wrapper {
-  max-height: calc(100vh - $header-height - $footer-height);
-  max-height: calc(100svh - $header-height - $footer-height);
+  max-height: 100%;
   padding: 0 16px;
 }
 
