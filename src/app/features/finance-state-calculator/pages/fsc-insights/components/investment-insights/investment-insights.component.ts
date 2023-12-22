@@ -12,30 +12,66 @@ import { FinancialAssetsData } from "src/app/features/finance-state-calculator/m
 })
 export class InvestmentInsightsComponent implements OnInit {
   @Input() financeStateData!: FinanceStateData;
-
   panelList: Panel[] = [];
+
+  private cryptoToTotalAssetsList: number[] = [50, 25, 15, 5, 0];
 
   ngOnInit(): void {
     this.returnInvestmentsInsights();
   }
 
   /**
-   * Used to check all investments insights.
+   * Used to check if there are investments in crypto for the investment insights and update the fourth panel.
+   * @param crypto the crypto value from the financial assets finance state data
    */
-  returnInvestmentsInsights() {
-    this.checkStocksAndEmergencyFund();
-    this.checkStocksAndDebt();
-    this.checkStocksDuration();
-    this.checkCrypto();
-    this.checkCryptoPercentage();
+  private checkCrypto(crypto: number) {
+    let hasCryptoInvestment: boolean = crypto > 0;
+    let insightLevel: number = 1;
+    if (hasCryptoInvestment) {
+      insightLevel = 2;
+    }
+    this.panelList.push({
+      title: "fscInsights.investments.crypto.title",
+      intro: "fscInsights.investments.crypto.intro" + insightLevel,
+      text: "fscInsights.investments.crypto.text" + insightLevel,
+    });
+  }
+
+  /**
+   * Used to check the crypto to total assets for the investment insights and update the last panel.
+   * @param crypto the crypto value from the financial assets finance state data
+   * @param financialAssets the financial assets finance state data
+   * @param physicalAssets the physical assets finance state data
+   */
+  private checkCryptoPercentage(crypto: number, financialAssets: FinancialAssetsData, physicalAssets: PhysicalAssetsData) {
+    if (crypto <= 0) {
+      return;
+    }
+    let totalAssets: number = 0;
+    for (let asset in financialAssets) {
+      totalAssets += financialAssets[asset as keyof FinancialAssetsData].assetValue;
+    }
+    for (let asset in physicalAssets) {
+      totalAssets += physicalAssets[asset as keyof PhysicalAssetsData].assetValue;
+    }
+    let cryptoToTotalAssets: number = (crypto / totalAssets) * 100;
+    let insightLevel: number = 0;
+    do {
+      insightLevel++;
+    } while (cryptoToTotalAssets <= this.cryptoToTotalAssetsList[insightLevel - 1]);
+    this.panelList.push({
+      title: "fscInsights.investments.cryptoPercentage.title",
+      intro: "fscInsights.investments.cryptoPercentage.intro" + insightLevel,
+      text: "fscInsights.investments.cryptoPercentage.text" + insightLevel,
+    });
   }
 
   /**
    * Used to check the stock investments and emergency fund state for the investment insights and update the first panel.
+   * @param emergencyFund the emergency fund value from the financial assets finance state data
    */
-  private checkStocksAndEmergencyFund() {
+  private checkStocksAndEmergencyFund(emergencyFund: number) {
     let hasStocksInvestment: boolean = this.financeStateData.financialAssets.stocks.assetValue > 0;
-    let emergencyFund: number = this.financeStateData.financialAssets.emergencyFund.assetValue;
     let emergencyFundGoal: number = (this.financeStateData.incomes.expenses / 12) * 3;
     let insightLevel: number = 0;
     switch (true) {
@@ -57,13 +93,13 @@ export class InvestmentInsightsComponent implements OnInit {
 
   /**
    * Used to check the stock investments and high interest debts state for the investment insights and update the second panel.
+   * @param liabilities the liabilities finance state data
    */
-  private checkStocksAndDebt() {
+  private checkStocksAndDebt(liabilities: LiabilitiesData) {
     let hasStocksInvestment: boolean = this.financeStateData.financialAssets.stocks.assetValue > 0;
-    let debtInterests: LiabilitiesData = this.financeStateData.liabilities;
     let hasHighInterestDebt: boolean = false;
-    for (let debt in debtInterests) {
-      if (debtInterests[debt as keyof LiabilitiesData].changeRate > 7) {
+    for (let debt in liabilities) {
+      if (liabilities[debt as keyof LiabilitiesData].changeRate > 7) {
         hasHighInterestDebt = true;
       }
     }
@@ -87,9 +123,9 @@ export class InvestmentInsightsComponent implements OnInit {
 
   /**
    * Used to check the stock investments planned duration for the investment insights and update the third panel.
+   * @param stocksDuration the stocks duration data from the financial assets finance state data
    */
-  private checkStocksDuration() {
-    let stocksDuration: string = this.financeStateData.financialAssets.stocks.duration;
+  private checkStocksDuration(stocksDuration: string) {
     let insightLevel: number = 0;
     switch (stocksDuration) {
       case "1":
@@ -112,48 +148,13 @@ export class InvestmentInsightsComponent implements OnInit {
   }
 
   /**
-   * Used to check if there are investments in crypto for the investment insights and update the fourth panel.
+   * Used to check all investments insights.
    */
-  private checkCrypto() {
-    let hasCryptoInvestment: boolean = this.financeStateData.financialAssets.crypto.assetValue > 0;
-    let insightLevel: number = 1;
-    if (hasCryptoInvestment) {
-      insightLevel = 2;
-    }
-    this.panelList.push({
-      title: "fscInsights.investments.crypto.title",
-      intro: "fscInsights.investments.crypto.intro" + insightLevel,
-      text: "fscInsights.investments.crypto.text" + insightLevel,
-    });
-  }
-
-  /**
-   * Used to check the crypto to total assets for the investment insights and update the last panel.
-   */
-  private checkCryptoPercentage() {
-    let cryptoToTotalAssetsList: number[] = [50, 25, 15, 5, 0];
-    let crypto: number = this.financeStateData.financialAssets.crypto.assetValue;
-    if (crypto <= 0) {
-      return;
-    }
-    let financialAssets: FinancialAssetsData = this.financeStateData.financialAssets;
-    let physicalAssets: PhysicalAssetsData = this.financeStateData.physicalAssets;
-    let totalAssets: number = 0;
-    for (let asset in financialAssets) {
-      totalAssets += this.financeStateData.financialAssets[asset as keyof FinancialAssetsData].assetValue;
-    }
-    for (let asset in physicalAssets) {
-      totalAssets += this.financeStateData.physicalAssets[asset as keyof PhysicalAssetsData].assetValue;
-    }
-    let cryptoToTotalAssets: number = (crypto / totalAssets) * 100;
-    let insightLevel: number = 0;
-    do {
-      insightLevel++;
-    } while (cryptoToTotalAssets <= cryptoToTotalAssetsList[insightLevel - 1]);
-    this.panelList.push({
-      title: "fscInsights.investments.cryptoPercentage.title",
-      intro: "fscInsights.investments.cryptoPercentage.intro" + insightLevel,
-      text: "fscInsights.investments.cryptoPercentage.text" + insightLevel,
-    });
+  private returnInvestmentsInsights() {
+    this.checkStocksAndEmergencyFund(this.financeStateData.financialAssets.emergencyFund.assetValue);
+    this.checkStocksAndDebt(this.financeStateData.liabilities);
+    this.checkStocksDuration(this.financeStateData.financialAssets.stocks.duration);
+    this.checkCrypto(this.financeStateData.financialAssets.crypto.assetValue);
+    this.checkCryptoPercentage(this.financeStateData.financialAssets.crypto.assetValue, this.financeStateData.financialAssets, this.financeStateData.physicalAssets);
   }
 }
