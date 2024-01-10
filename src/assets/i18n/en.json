@@ -87,9 +87,9 @@
       "l2": {
         "title": "Second step",
         "intro1": "You have HIGH INTEREST DEBT.",
-        "text1": "<b>Paying this down will be your next financial priority to tackle.</b> High interest debt poses a major problem to financial progression because the interest owed can be very expensive and snowball into large amounts quickly. It is one of the main things that can completely undermine your financial journey. For more information on your debt, see the debt section below. Return to the table and update it once the debt is paid off so you can progress to the next level.",
+        "text1": "<b>Paying this down will be your next financial priority to tackle.</b> High interest debt poses a major problem to financial progression because the interest owed can be very expensive and snowball into large amounts quickly. It is one of the main things that can completely undermine your financial journey. For more information on your debt, see the debt section below. Return to the form and update it once the debt is paid off so you can progress to the next level.",
         "intro2": "You have NO HIGH INTEREST DEBT.",
-        "text2": "Nice! Assuming you've passed level one, you've now also passed priority level 2. Look at you on a roll. This means your hard earned savings are able to go towards productive purposes and grow your net worth. You may have some lower interest debt which is totally fine (within reason). We'll analyze that further below in the debt section. For now, proceed to priority level 3!"
+        "text2": "<b>Nice! Assuming you've passed level one, you've now also passed priority level 2.</b> Look at you on a roll. This means your hard earned savings are able to go towards productive purposes and grow your net worth. You may have some lower interest debt which is totally fine (within reason). We'll analyze that further below in the debt section. For now, proceed to priority level 3!"
       },
       "l3": {
         "title": "Third step",
@@ -98,14 +98,14 @@
         "intro2": "You have an EMERGENCY FUND, but it's not complete.",
         "text2": "It's great that you've started building your emergency fund, but in order for it to truly fulfill it's purpose it should be worth 3-6 months of your living expenses. Growing your emergency fund to this size will be your next financial priority.",
         "intro3": "You have an EMERGENCY FUND, and it is a good size.",
-        "text3": "Nice! You've passed priority level 3. You can honestly give yourself a pat on the back here as most people skip this step. Proceed to level 4!"
+        "text3": "<b>Nice! You've passed priority level 3.</b> You can honestly give yourself a pat on the back here as most people skip this step. Proceed to level 4!"
       },
       "l4": {
         "title": "Fourth step",
         "intro1": "You're currently NOT INVESTING.",
         "text1": "If you've passed the first three levels then you are in an excellent position to begin thinking about investing some of your money. You've built an excellent financial base and now it would be smart to begin putting your money to work for you so that it can grow through the power of compound interest. My personal reccomendation for a next step would be to start educating yourself about passive investing and index ETF's.",
         "intro2": "You're currently INVESTING.",
-        "text2": "That's great! As long as you have passed the first three levels, you are in an excellent position to be investing your money. If you have not passed the first three levels, it would be smart to circle back and see what work needs to be done before beginning to put your money at risk with the goal of a future reward. For more insights into your investments, see the investing section below."
+        "text2": "<b>That's great! As long as you have passed the first three levels, you are in an excellent position to be investing your money.</b> If you have not passed the first three levels, it would be smart to circle back and see what work needs to be done before beginning to put your money at risk with the goal of a future reward. For more insights into your investments, see the investing section below."
       },
       "l5": {
         "title": "Fifth step",
@@ -128,11 +128,11 @@
         "intro4": "You are FIRMLY in ADULTHOOD.",
         "text4": "At this stage in your life you may be hitting your stride in your career, formed a household, and have several responsibilities as well as people who depend on you. This can be one of the most complicated stages of your life financially speaking. But it can also be one of the best stages because you may be earning much more income than when you first started your career. Of course, your expenses are probably much higher too! Hopefully these series of insights will be helpful to give you some food for thought to navigate this period of your life so you can enjoy it while also making sure you have a good path towards retirement down the road.",
         "intro5": "You are APPROACHING RETIREMENT AGE.",
-        "text5": "At this stage in your life one of the main things that is probably on your mind when it comes to money is retirement. While this table and the insights associated with it won't replace a proper retirement plan or conversation with a professional, it will hopefully give you some food for thought as you evaluate your financial picture in the face of this approaching milestone.",
+        "text5": "At this stage in your life one of the main things that is probably on your mind when it comes to money is retirement. While this application and the insights associated with it won't replace a proper retirement plan or conversation with a professional, it will hopefully give you some food for thought as you evaluate your financial picture in the face of this approaching milestone.",
         "intro6": "You are in RETIREMENT AGE.",
-        "text6": "At this stage in your life you may be retired or are preparing for retirement. This stage is a big shift from everything you have experienced with your finances thus far. That's because you will no longer be earning the income you are used to and will be transitioning to living off of different income sources as well as the wealth you have built over your lifetime. And because of this, you may find that this table is not particularly useful to you. I created this to specifically help the wealth building stage that we are in for most of our life. You are now in or heading towards the wealth spending stage! I'm sorry I can't be much help here, I am only 28 after all. But if you're looking for advice regarding retirement planning, it may be a good idea to seek out a good professional you can trust.",
+        "text6": "At this stage in your life you may be retired or are preparing for retirement. This stage is a big shift from everything you have experienced with your finances thus far. That's because you will no longer be earning the income you are used to and will be transitioning to living off of different income sources as well as the wealth you have built over your lifetime. And because of this, you may find that this application is not particularly useful to you. I created this to specifically help the wealth building stage that we are in for most of our life. You are now in or heading towards the wealth spending stage! I'm sorry I can't be much help here, I am only 28 after all. But if you're looking for advice regarding retirement planning, it may be a good idea to seek out a good professional you can trust.",
         "intro7": "You are in your GOLDEN YEARS.",
-        "text7": "I'm humbled that you came across this google sheets table! Unfortunately, you may not find it very useful. I created this table specifically to help people grow their wealth. But you are most likely now spending yours! So with that being said, feel free to browse through it, but if you're looking for financial advice it would be best to find a good professional you can trust."
+        "text7": "I'm humbled that you came across this google sheets application! Unfortunately, you may not find it very useful. I created this application specifically to help people grow their wealth. But you are most likely now spending yours! So with that being said, feel free to browse through it, but if you're looking for financial advice it would be best to find a good professional you can trust."
       },
       "liquidity": {
         "title": "Liquid assets to debt",
@@ -184,8 +184,8 @@
         "text2": "Your monthly savings are lower than the debt. This could mean your credit card debt is relatively high or you savings rate is relatively low which probably means you're working on either priority level 1 or 2. In this case, I would prioritize focusing on increasing the savings rate while also learning more about your debt and any strategies available to help lower the interest rate associated with it.",
         "intro3": "It would take you ONE MONTH OR LESS to PAY OFF your credit card debt.",
         "text3": "Your monthly savings are higher than this debt. That's a good position to be in because it allows you to completely wipe out this debt in a short period of time. This is part of the reason why savings are the lifeblood of this whole thing! Keep up the great work.",
-        "intro4": "You do NOT HAVE any credit card debt.",
-        "text4": ""
+        "intro4": "You do NOT HAVE any CREDIT CARD debt.",
+        "text4": "This is great because it means you have not been reliant on your credit card. Keep up the great work!"
       },
       "income": {
         "title": "Income vs. Credit card debt",
@@ -205,7 +205,7 @@
       "debtService": {
         "title": "Debt service vs. Income",
         "intro1": "You are spending MORE MONEY than your MONTHLY INCOME on servicing your monthly debt.",
-        "text1": "As I'm sure you're aware, this is not good. You may need to seek professional help, debt releif programs, and career advice in order to get on top of this.",
+        "text1": "As I'm sure you're aware, this is not good. You may need to seek professional help, debt relief programs, and career advice in order to get on top of this.",
         "intro2": "You are spending a VERY LARGE AMOUNT of your MONTHLY INCOME on servicing your monthly debt.",
         "text2": "This is probably causing you financial strain and putting you in a vulnerable position as it is likely limiting your ability to save money. Investigating why your debt payments are so high relative to your income should be a top priority. A plan needs to be made to get on top of this.",
         "intro3": "You are spending a SIZEABLE AMOUNT of your MONTHLY INCOME on servicing your monthly debt.",
@@ -236,7 +236,7 @@
         "intro1": "You do NOT HAVE investments in STOCKS.",
         "text1": "You are probably in a place where you are not financially or mentally ready to begin investing your money in the stock market and that's totally ok! (unless you have chosen other avenues of investment in which case you can disregard this). Exposing your money to the risks and rewards of stocks is something that should only be done once you have reached priority level 4. This will ensure that you're in the best possible position to begin investing and using the help of compound interest to grow your wealth. Many people start investing before they are ready and end up making mistakes that can set them back or turn them away from the stock market forever. This is a shame because the stock market is one of the most powerful tools we can use to build serious wealth over time. So, take your time, complete all the prerequisite priorities, and then begin your investment journey on the right foot!",
         "intro2": "You HAVE investments in STOCKS but your EMERGENCY FUND is NOT COMPLETE.",
-        "text2": "It looks like you may have jumped the gun on investing your money in stocks right now. As the priority hierarchy explains, its important to have an emergency fund in place before you begin exposing your money to risk in the stock market. The reason this is so important is because a scenario could happen where your stocks lose value and at the same time they lose value, an emergency happens and you need to access the money you put in the stock market. This means you will be taking a loss on your money, potentially a large enough one that isn't enough to cover the emergency. When we invest, its best to leave your money in the stock market for at least 10 years but ideally much longer. This allows us to greatly decrease the risk of loss and prevents us from selling in an emergency and taking a loss we could have avoided by having an emergency fund set up first.",
+        "text2": "It looks like you may have jumped the gun on investing your money in stocks right now. As the priority hierarchy explains, its important to have an emergency fund in place before you begin exposing your money to risk in the stock market. The reason this is so important is because a scenario could happen where your stocks lose value, an emergency happens and you need to access the money you put in the stock market. This means you will be taking a loss on your money, potentially a large enough one that isn't enough to cover the emergency. When we invest, its best to leave your money in the stock market for at least 10 years but ideally much longer. This allows us to greatly decrease the risk of loss and prevents us from selling in an emergency and taking a loss we could have avoided by having an emergency fund set up first.",
         "intro3": "You HAVE investments in STOCKS and your EMERGENCY FUND is COMPLETE.",
         "text3": "Great work here. It's important to have an emergency fund in place before you start investing your money and exposing it to risk. You're investing responsibly and that will help prevent you from making emotional mistakes with your money."
       },
@@ -283,59 +283,24 @@
     }
   },
   "common": {
-    "add": "Add",
-    "addAll": "Add All",
     "back": "Back",
-    "close": "Close",
-    "columns": "Columns",
     "currency": "$",
-    "description": "Description",
-    "detailedDescription": "Detailed Description",
-    "details": "Details",
-    "disabled": "Disabled",
-    "download": "Download",
-    "endDate": "End Date",
-    "endTime": "End Time",
-    "export": "Export",
-    "fileName": "File Name",
-    "fileSize": "File Size",
-    "filters": "Filters",
-    "legends": "Legends",
-    "menu": "Menu",
     "next": "Next",
     "no": "No",
-    "note": "Note",
-    "refresh": "Refresh",
     "reset": "Reset",
-    "save": "Save",
-    "selectAll": "Select All",
-    "source": "Source",
-    "startDate": "Start Date",
-    "startTime": "Start Time",
-    "status": "Status",
     "submit": "Submit",
-    "successSave": "Saved successfully",
-    "texts": "Texts",
-    "upload": "Upload",
-    "uploadDate": "Upload Date",
-    "uploadFile": "Upload File",
-    "username": "Username",
-    "version": "Version",
     "yes": "Yes",
-    "select": {
-      "all": "Select All",
-      "clear": "Clear"
-    },
     "error": {
-      "forbidden": "Access to this resource is forbidden",
-      "generic": "An Error Occurred",
-      "locationMissing": "Location missing",
       "required": "This field is required"
     },
     "language": {
       "changeLanguage": "Change language",
       "english": "English",
       "italian": "Italian"
+    },
+    "select": {
+      "all": "Select All",
+      "clear": "Clear"
     }
   }
 }
