@@ -5,7 +5,7 @@ import { BrowserModule } from "@angular/platform-browser";
 
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { HttpLoaderFactory } from "./core/utils/httpLoaderFactory";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 // other imports
@@ -39,7 +39,7 @@ import { MatIconModule } from "@angular/material/icon";
 })
 export class AppModule {}
 
-// required for AOT compilation
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
-}
+// // required for AOT compilation
+// export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+//   return new TranslateHttpLoader(http);
+// }
