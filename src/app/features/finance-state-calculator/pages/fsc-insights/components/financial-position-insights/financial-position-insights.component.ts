@@ -44,9 +44,9 @@ export class FinancialPositionInsightsComponent implements OnInit {
     let totalIncome: number = this.financeStateData.incomes.employment + this.financeStateData.incomes.investment + this.financeStateData.incomes.other;
     let monthlyIncome: number = totalIncome / 12;
     let housingCost: number = 0;
-    if (this.financeStateData.liabilities.mortgage.assetValue > 0 && this.financeStateData.incomes.homeOwner) {
+    if (this.financeStateData.liabilities.mortgage.assetValue > 0 && this.financeStateData.incomes.homeOwner === "true") {
       housingCost = this.financeStateData.liabilities.mortgage.assetValue;
-    } else if (this.financeStateData.incomes.rent && !this.financeStateData.incomes.homeOwner && this.financeStateData.incomes.rent > 0) {
+    } else if (this.financeStateData.incomes.rent && this.financeStateData.incomes.homeOwner === "false" && this.financeStateData.incomes.rent > 0) {
       housingCost = this.financeStateData.incomes.rent;
     }
     let incomeToHousingCost: number = (housingCost / monthlyIncome) * 100;
