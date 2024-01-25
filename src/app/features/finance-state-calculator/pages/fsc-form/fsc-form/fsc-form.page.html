@@ -13,7 +13,7 @@
       <div class="align-center-md flex-row-md flex-column align-flex-start"><sm-input-number class="flex-1" formControlName="expenses" [isCurrency]="true" label="fscForm.income.expenses"></sm-input-number></div>
       <h4>{{ "fscForm.income.homeOwner" | translate }}</h4>
       <div class="align-center-md flex-row-md flex-column align-flex-start"><sm-input-select class="flex-1" formControlName="homeOwner" [optionList]="homeOwnerList" label="fscForm.income.homeOwner"></sm-input-select></div>
-      <ng-container *ngIf="incomesFormGroup.controls['homeOwner'].value === 'true'">
+      <ng-container *ngIf="incomesFormGroup.controls['homeOwner'].value === 'false'">
         <h4>{{ "fscForm.income.rent" | translate }}</h4>
         <div class="align-center-md flex-row-md flex-column align-flex-start"><sm-input-number class="flex-1" formControlName="rent" [isCurrency]="true" label="fscForm.income.rent"></sm-input-number></div>
       </ng-container>
