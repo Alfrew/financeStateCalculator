@@ -54,6 +54,9 @@ export class FinancialPositionInsightsComponent implements OnInit {
     do {
       insightLevel++;
     } while (incomeToHousingCost <= this.incomeToHousingCostList[insightLevel - 1]);
+    if (housingCost === 0) {
+      insightLevel = 5;
+    }
     this.panelList.push({
       title: "fscInsights.position.housingCost.title",
       intro: "fscInsights.position.housingCost.intro" + insightLevel,
