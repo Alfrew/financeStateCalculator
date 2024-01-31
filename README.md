@@ -1,4 +1,4 @@
-# FsCalculator
+# Finance State Calculator
 
 ## Description
 
