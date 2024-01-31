@@ -5,7 +5,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
 
 App inspired by the Stephen Antonioni's Net Worth Table spreadsheet. <br/>
-I've decided to create this app mainly to improve the mobile user experience, since the spreadsheet one mobile has a pretty bad UX. <br/>
+I've decided to create this app mainly to improve the mobile user experience, since the spreadsheet on mobile has a pretty bad UX. <br/>
 Other than that I've also decided to work on this project to create a personal workflow and start to build a personal How to and Wiki to support future app development. <br/>
 During the development I've learned how to localize an Angular app, improved my Angular Material knowledge and designing skills
 
